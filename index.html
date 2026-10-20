@@ -1,0 +1,4030 @@
+<!DOCTYPE html>
+<!--
+  ==============================================================================
+  AVISO IMPORTANTE — MODELO DE DEMONSTRAÇÃO (CONTEÚDO FICTÍCIO)
+  Todo o conteúdo desta página (nome, telefone, endereço, preços e textos) é
+  estritamente fictício e foi criado como demonstração de design e engenharia
+  front-end. Substitua os dados no objeto CONFIG (no <script> ao final deste
+  arquivo) e adicione as fotos reais na pasta assets/ antes de publicar.
+  ==============================================================================
+
+  DIREÇÃO VISUAL, HERO E PLANO DE ANIMAÇÕES:
+  1. Jogo de Cores Alternado (Zero Monotonia / Zero "Branco Demais"):
+     - Hero: Atmosfera escura profunda (--ink #0B2021) com Aurora Background
+       suave em verde-petróleo e esmeralda + destaque em gradiente OKLCH (.palette-1).
+     - Faixa de Diferenciais: Areia quente editorial (#EFE6D8).
+     - Serviços: Verde-névoa mineral encorpado (#DCEBE7) com cards em creme (#FAF7F2).
+     - Como Funciona: Pausa escura em verde-petróleo para teal (#0F2A2B -> #1D6B6A).
+     - Antes e Depois: Creme aquecido (#F3ECE1) destacando o comparador.
+     - Perguntas Frequentes: Verde-sálvia acetinado (#E2F0EC).
+     - Chamada Final: Degradê escuro profundo com IMG-06 suave por baixo.
+     - Assinatura da Marca & Rodapé: Fundo escuro (#071617) com efeito
+       BeamsBackground em <canvas> atrás do nome monumental "Lume Estofados".
+  2. Composição da Hero (Celular e Computador):
+     - No celular (<= 1023px): Elimina qualquer degradê bege lavado; abre direto
+       na atmosfera escura com Aurora sutil, tipografia de alto impacto com
+       frase em destaque no gradiente .palette-1, botão principal e vitrine
+       visual enquadrada da IMG-01 integrada ao cartão de contato em vidro fosco.
+     - No computador (>= 1024px): Coluna de texto à esquerda sobre fundo escuro
+       Aurora e painel da IMG-01 à direita fundindo-se perfeitamente tom-sobre-tom
+       com o fundo petróleo, com cartão de contato em glassmorphism no canto
+       inferior direito.
+  3. Animações: Entrada das frases principais com subida suave (y: 40px -> 0,
+     0.8s ease-in-out), Aurora CSS contínua no topo e feixes de luz em Canvas
+     (BeamsBackground) no nome da marca ao final.
+
+  ==============================================================================
+  MAPA DE ESPAÇOS DE IMAGEM (SLOTS RESERVADOS)
+  Adicione `?slots` ao final da URL (ex.: index.html?slots) para visualizar as
+  etiquetas de identificação de cada espaço diretamente na página.
+  ------------------------------------------------------------------------------
+  CÓDIGO  | ARQUIVO                              | DIMENSÕES   | PROPORÇÃO | USO
+  --------|--------------------------------------|-------------|-----------|-------
+  IMG-01  | assets/hero.jpg                      | 2400x1600   | 3:2       | Hero principal (SVG inline nativo + substituição automática no load)
+  IMG-02  | assets/servico-higienizacao.jpg      | 1200x1500   | 4:5       | Card do serviço de Higienização
+  IMG-03  | assets/servico-impermeabilizacao.jpg | 1200x1500   | 4:5       | Card do serviço de Impermeabilização
+  IMG-04  | assets/antes.jpg                     | 1600x1200   | 4:3       | Comparador Antes e Depois (camada Antes)
+  IMG-05  | assets/depois.jpg                    | 1600x1200   | 4:3       | Comparador Antes e Depois (camada Depois — mesmo enquadramento)
+  IMG-06  | assets/chamada-final.jpg             | 2000x1000   | 2:1       | Fundo suave da seção de Chamada Final
+  LOGO    | assets/logo.svg                      | Vetorial    | Livre     | Substitui o wordmark e símbolo no cabeçalho
+  ==============================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Lume Estofados · Higienização e Impermeabilização em Curitiba, PR</title>
+  <meta name="description" content="Higienização profunda das fibras e impermeabilização de estofados em Curitiba, PR. Atendimento em domicílio no Batel, Água Verde, Bigorrilho e região. Orçamento rápido no WhatsApp.">
+  <meta name="theme-color" content="#0B2021">
+
+  <!-- Open Graph / Compartilhamento -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Lume Estofados · Higienização e Impermeabilização em Curitiba, PR">
+  <meta property="og:description" content="Seu sofá limpo de verdade e protegido do próximo acidente. Atendimento na sua casa em Curitiba. Chame no WhatsApp e receba seu orçamento em poucos minutos.">
+  <meta property="og:site_name" content="Lume Estofados">
+
+  <!-- Google Fonts: Bricolage Grotesque & DM Sans (font-display: swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Dados Estruturados SEO Local (sincronizados via CONFIG no JS) -->
+  <script type="application/ld+json" id="seo-jsonld">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Lume Estofados",
+    "description": "Estofado limpo, protegido e com cheiro de casa nova. Higienização profunda das fibras e impermeabilização em Curitiba, PR.",
+    "slogan": "Estofado limpo, protegido e com cheiro de casa nova",
+    "telephone": "+55-41-90000-0000",
+    "email": "contato@lumeestofados.exemplo",
+    "priceRange": "R$ 149 - R$ 189+",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Curitiba",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "areaServed": [
+      "Batel",
+      "Água Verde",
+      "Bigorrilho",
+      "Juvevê",
+      "Centro Cívico",
+      "Portão"
+    ],
+    "openingHours": "Mo-Sa 08:00-18:00"
+  }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       1. VARIÁVEIS, PALETA ALTERNADA E GRADIENTE OKLCH (.palette-1)
+       ========================================================================== */
+    :root {
+      --ink-deep: #071718;
+      --ink: #0F2A2B;
+      --ink-mid: #163C3E;
+      --ink-muted: #2B4C4D;
+      --teal: #1D6B6A;
+      --teal-soft: #3E8F8A;
+      --mist: #DCECE8;
+      --mist-sage: #E2F0EC;
+      --cream: #FAF7F2;
+      --cream-warm: #F3ECE1;
+      --sand-bg: #EFE6D8;
+      --sand: #D9C7A5;
+      --sand-soft: #E8DCC4;
+      --wa: #1FA463;
+      --wa-dark: #16824C;
+
+      /* Variáveis para o efeito Aurora na Hero */
+      --aurora-dark: repeating-linear-gradient(
+        100deg,
+        #071718 0%,
+        #071718 7%,
+        transparent 10%,
+        transparent 12%,
+        #071718 16%
+      );
+      --aurora-ribbons: repeating-linear-gradient(
+        100deg,
+        #165B4C 10%,
+        #28886A 15%,
+        #1D6B6A 20%,
+        #52B788 25%,
+        #1F7A68 30%
+      );
+
+      --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --container-max: 1180px;
+      --gutter: clamp(20px, 4vw, 40px);
+
+      --radius-card: 22px;
+      --radius-btn: 14px;
+      --radius-pill: 999px;
+
+      --shadow-card: 0 20px 44px -16px rgba(15, 42, 43, 0.12), 0 4px 12px -3px rgba(15, 42, 43, 0.06);
+      --shadow-card-hover: 0 26px 54px -14px rgba(15, 42, 43, 0.18), 0 8px 20px -4px rgba(15, 42, 43, 0.09);
+      --shadow-wa: 0 14px 32px -6px rgba(31, 164, 99, 0.38), 0 4px 10px -2px rgba(7, 23, 24, 0.22);
+      --shadow-wa-hover: 0 18px 38px -6px rgba(31, 164, 99, 0.48), 0 6px 14px -2px rgba(7, 23, 24, 0.28);
+
+      --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+      --ease-phrase: cubic-bezier(0.4, 0, 0.2, 1);
+      --header-h: 72px;
+    }
+
+    /* Gradiente solicitado (https://grabient.com/kUS0FnsrG_khCwDiykDg?steps=5&angle=225)
+       com fallback hexadecimal + versão nativa em oklch */
+    .palette-1 {
+      background: linear-gradient(
+        225deg,
+        #113621 0.0%,
+        #164B2B 25.0%,
+        #1F6A3A 50.0%,
+        #2F9851 75.0%,
+        #52C977 100.0%
+      );
+      background: linear-gradient(
+        225deg in oklch,
+        oklch(29.53% 0.0896 145.55) 0.0%,
+        oklch(36.50% 0.1228 142.83) 25.0%,
+        oklch(47.57% 0.1608 142.69) 50.0%,
+        oklch(62.12% 0.1880 146.35) 75.0%,
+        oklch(77.56% 0.1999 152.94) 100.0%
+      );
+    }
+
+    /* Versão luminosa para texto em destaque sobre o fundo escuro da Hero */
+    .palette-1-text {
+      background: linear-gradient(
+        225deg,
+        #63D487 0%,
+        #8CE3A6 38%,
+        #D9C7A5 78%,
+        #FAF7F2 100%
+      );
+      background: linear-gradient(
+        225deg in oklch,
+        oklch(82% 0.17 152.94) 0%,
+        oklch(87% 0.13 148) 42%,
+        oklch(86% 0.05 85) 82%,
+        oklch(97% 0.01 90) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ==========================================================================
+       2. RESET E REGRAS GLOBAIS (ZERO ITÁLICO, ZERO ROLAGEM HORIZONTAL)
+       ========================================================================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-style: normal !important;
+    }
+
+    em, i, cite, address, dfn, var {
+      font-style: normal !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+      background-color: var(--ink-deep);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: clip;
+    }
+
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+      background-color: var(--sand-bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 0.96rem + 0.22vw, 1.0625rem);
+      font-weight: 400;
+      line-height: 1.65;
+      position: relative;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    img, svg, canvas {
+      display: block;
+      max-width: 100%;
+    }
+
+    button, input, a {
+      font: inherit;
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      appearance: none;
+      -webkit-appearance: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    :focus {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: 2.5px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .section-dark :focus-visible,
+    .hero :focus-visible,
+    .site-footer :focus-visible,
+    .mobile-menu-panel :focus-visible {
+      outline-color: var(--sand);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.1;
+      color: inherit;
+      text-wrap: balance;
+    }
+
+    p {
+      max-width: 63ch;
+      text-wrap: pretty;
+    }
+
+    .container {
+      width: 100%;
+      max-width: calc(var(--container-max) + (var(--gutter) * 2));
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    /* Trama de tecido sutil reutilizável */
+    .fabric-surface {
+      background-image:
+        radial-gradient(rgba(29, 107, 106, 0.05) 1px, transparent 0),
+        radial-gradient(rgba(15, 42, 43, 0.038) 1px, transparent 0);
+      background-size: 18px 18px;
+      background-position: 0 0, 9px 9px;
+    }
+
+    /* Divisores em curva SVG discreta entre todas as seções para transição suave */
+    .section-curve {
+      position: relative;
+      z-index: 3;
+      display: block;
+      width: 100%;
+      height: clamp(44px, 5vw, 80px);
+      margin-block: -1px;
+      overflow: hidden;
+      line-height: 0;
+      pointer-events: none;
+    }
+
+    .section-curve svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* ==========================================================================
+       3. SISTEMA DE SLOTS DE IMAGEM (?slots) E FALLBACKS ELEGANTES
+       ========================================================================== */
+    [data-slot] {
+      position: relative;
+    }
+
+    .slot-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--slot-pos, center center);
+      opacity: 0;
+      transition: opacity 450ms var(--ease-out), transform 700ms var(--ease-out);
+      pointer-events: none;
+    }
+
+    .slot-img.is-loaded {
+      opacity: 1;
+    }
+
+    .slot-badge {
+      display: none;
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 35;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(7, 23, 24, 0.92);
+      color: var(--cream);
+      border: 1px solid rgba(217, 199, 165, 0.48);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      box-shadow: 0 6px 16px rgba(7, 23, 24, 0.35);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .slot-badge--right {
+      left: auto;
+      right: 14px;
+    }
+
+    .slot-badge--hero {
+      top: 16px;
+      right: 16px;
+      left: auto;
+    }
+
+    html.show-slots .slot-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ==========================================================================
+       4. BARRA DE LEITURA E CABEÇALHO FIXO (ADAPTADO À HERO ESCURA E ROLAGEM)
+       ========================================================================== */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      z-index: 130;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .reading-progress__bar {
+      width: 100%;
+      height: 100%;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 80ms linear;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-h);
+      z-index: 110;
+      background: rgba(7, 23, 24, 0.32);
+      border-bottom: 1px solid rgba(232, 241, 239, 0.08);
+      transition:
+        background-color 280ms var(--ease-out),
+        border-color 280ms var(--ease-out),
+        height 280ms var(--ease-out),
+        box-shadow 280ms var(--ease-out);
+    }
+
+    @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+      .site-header {
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+      }
+    }
+
+    .site-header.is-scrolled {
+      height: 62px;
+      background-color: rgba(11, 32, 33, 0.90);
+      border-bottom-color: rgba(217, 199, 165, 0.14);
+      box-shadow: 0 10px 30px -10px rgba(7, 23, 24, 0.38);
+    }
+
+    .site-header__inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* Brand / Logo */
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      color: var(--cream);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      position: relative;
+      z-index: 120;
+      flex-shrink: 0;
+    }
+
+    .brand-logo__default {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo__mark {
+      width: 35px;
+      height: 35px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px -4px rgba(31, 164, 99, 0.35);
+      border: 1px solid rgba(250, 247, 242, 0.22);
+      flex-shrink: 0;
+    }
+
+    .brand-logo__mark svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .brand-logo__custom-img {
+      display: none;
+      height: 34px;
+      width: auto;
+    }
+
+    .brand-logo.has-image .brand-logo__default {
+      display: none;
+    }
+
+    .brand-logo.has-image .brand-logo__custom-img {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Navegação Computador */
+    .desktop-nav {
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .desktop-nav__link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: rgba(250, 247, 242, 0.82);
+      transition: color 220ms var(--ease-out), background-color 220ms var(--ease-out);
+      white-space: nowrap;
+    }
+
+    .desktop-nav__link::after {
+      content: "";
+      position: absolute;
+      bottom: 7px;
+      left: 16px;
+      right: 16px;
+      height: 2px;
+      border-radius: 2px;
+      background: #52C977;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 240ms var(--ease-out);
+    }
+
+    .desktop-nav__link.is-active {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    .desktop-nav__link.is-active::after {
+      transform: scaleX(1);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .desktop-nav__link:hover {
+        color: var(--cream);
+        background-color: rgba(250, 247, 242, 0.08);
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Botão do Menu Mobile (mínimo 44x44px) */
+    .menu-toggle {
+      position: relative;
+      z-index: 120;
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(250, 247, 242, 0.10);
+      border: 1px solid rgba(250, 247, 242, 0.20);
+      color: var(--cream);
+      transition: background-color 240ms var(--ease-out), border-color 240ms var(--ease-out), color 240ms var(--ease-out);
+      flex-shrink: 0;
+    }
+
+    .menu-toggle__bars {
+      width: 20px;
+      height: 14px;
+      position: relative;
+      display: block;
+    }
+
+    .menu-toggle__bar {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 2px;
+      background-color: currentColor;
+      transition: transform 280ms var(--ease-out), opacity 200ms var(--ease-out), top 280ms var(--ease-out);
+    }
+
+    .menu-toggle__bar:nth-child(1) {
+      top: 0;
+    }
+
+    .menu-toggle__bar:nth-child(2) {
+      top: 6px;
+      width: 72%;
+      right: 0;
+      left: auto;
+    }
+
+    .menu-toggle__bar:nth-child(3) {
+      top: 12px;
+    }
+
+    .menu-toggle[aria-expanded="true"] {
+      background: rgba(250, 247, 242, 0.16);
+      border-color: rgba(217, 199, 165, 0.40);
+      color: var(--cream);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(1) {
+      top: 6px;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(2) {
+      opacity: 0;
+      transform: translateX(6px);
+    }
+
+    .menu-toggle[aria-expanded="true"] .menu-toggle__bar:nth-child(3) {
+      top: 6px;
+      transform: rotate(-45deg);
+    }
+
+    /* Painel de Menu Mobile em Tela Cheia */
+    .mobile-menu-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 105;
+      background: rgba(7, 23, 24, 0.60);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 320ms var(--ease-out), visibility 320ms var(--ease-out);
+    }
+
+    .mobile-menu-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-panel {
+      position: fixed;
+      inset: 0;
+      z-index: 108;
+      background: linear-gradient(155deg, var(--ink-deep) 0%, var(--ink) 55%, var(--teal) 100%);
+      color: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: calc(var(--header-h) + 28px) var(--gutter) calc(32px + env(safe-area-inset-bottom, 0px));
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      transition:
+        opacity 320ms var(--ease-out),
+        transform 320ms var(--ease-out),
+        visibility 320ms var(--ease-out);
+      overflow-y: auto;
+    }
+
+    .mobile-menu-panel.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-menu-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-block: auto;
+    }
+
+    .mobile-menu-nav__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 4px;
+      border-bottom: 1px solid rgba(232, 241, 239, 0.14);
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 6vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 360ms var(--ease-out),
+        transform 360ms var(--ease-out),
+        color 200ms var(--ease-out);
+    }
+
+    .mobile-menu-panel.is-open .mobile-menu-nav__link {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: calc(var(--item-idx, 0) * 60ms + 80ms);
+    }
+
+    .mobile-menu-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 24px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 380ms var(--ease-out) 260ms, transform 380ms var(--ease-out) 260ms;
+    }
+
+    .mobile-menu-panel.is-open .mobile-menu-footer {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.92rem;
+      color: var(--mist);
+    }
+
+    /* ==========================================================================
+       5. BOTÕES E INTERAÇÕES
+       ========================================================================== */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 54px;
+      padding: 12px 26px;
+      border-radius: var(--radius-btn);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      transition:
+        transform 240ms var(--ease-out),
+        box-shadow 240ms var(--ease-out),
+        background-color 240ms var(--ease-out);
+      user-select: none;
+    }
+
+    .header-cta {
+      display: none !important;
+    }
+
+    @media (min-width: 1024px) {
+      .brand-logo {
+        font-size: 1.25rem;
+      }
+      .desktop-nav {
+        display: flex;
+      }
+      .header-cta {
+        display: inline-flex !important;
+      }
+      .menu-toggle,
+      .mobile-menu-panel,
+      .mobile-menu-backdrop {
+        display: none !important;
+      }
+    }
+
+    /* Botão principal usando o gradiente .palette-1 refinado para WhatsApp */
+    .btn--wa {
+      background: linear-gradient(135deg, #24B36B 0%, var(--wa) 52%, #156B3F 100%);
+      color: #FAF7F2;
+      box-shadow: var(--shadow-wa);
+      border: 1px solid rgba(250, 247, 242, 0.22);
+    }
+
+    /* Reflexo diagonal sutil a cada 6 segundos */
+    .btn--wa-sheen::after {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -45%;
+      width: 36%;
+      height: 140%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.24) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-24deg) translateX(0);
+      animation: btn-sheen 6s var(--ease-out) infinite;
+      pointer-events: none;
+    }
+
+    @keyframes btn-sheen {
+      0%, 78% {
+        transform: skewX(-24deg) translateX(0);
+        opacity: 0;
+      }
+      80% {
+        opacity: 1;
+      }
+      94% {
+        transform: skewX(-24deg) translateX(460%);
+        opacity: 1;
+      }
+      96%, 100% {
+        transform: skewX(-24deg) translateX(460%);
+        opacity: 0;
+      }
+    }
+
+    .btn--compact {
+      min-height: 44px;
+      padding: 9px 18px;
+      font-size: 0.92rem;
+      border-radius: 12px;
+      gap: 9px;
+    }
+
+    .btn__icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .btn--compact .btn__icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .btn--wa:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-wa-hover);
+      }
+    }
+
+    .btn--wa:active {
+      transform: translateY(0) scale(0.985);
+    }
+
+    /* Botão secundário */
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 8px 6px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--ink);
+      position: relative;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-secondary--light {
+      color: var(--cream);
+    }
+
+    .btn-secondary__label {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .btn-secondary__label::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.5px;
+      background-color: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 260ms var(--ease-out);
+    }
+
+    .btn-secondary--light .btn-secondary__label::after {
+      background-color: #63D487;
+    }
+
+    .btn-secondary__arrow {
+      width: 18px;
+      height: 18px;
+      color: var(--teal);
+      transition: transform 240ms var(--ease-out);
+      flex-shrink: 0;
+    }
+
+    .btn-secondary--light .btn-secondary__arrow {
+      color: #63D487;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .btn-secondary:hover .btn-secondary__label::after {
+        transform: scaleX(1);
+      }
+      .btn-secondary:hover .btn-secondary__arrow {
+        transform: translateX(4px);
+      }
+    }
+
+    /* ==========================================================================
+       6. SEÇÃO 1: HERO REDESENHADA (ATMOSFERA ESCURA + AURORA BACKGROUND +
+          VITRINE MOBILE IMPACTANTE SEM DEGRADÊ LAVADO)
+       ========================================================================== */
+    @keyframes aurora-shift {
+      from {
+        background-position: 50% 50%, 50% 50%;
+      }
+      to {
+        background-position: 350% 50%, 350% 50%;
+      }
+    }
+
+    .hero {
+      position: relative;
+      background-color: var(--ink-deep);
+      color: var(--cream);
+      overflow: hidden;
+      padding-top: calc(var(--header-h) + 10px);
+      padding-bottom: 20px;
+    }
+
+    /* Camada Aurora Background (inspirada no componente aurora-background.tsx) */
+    .aurora-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .aurora-bg__layer {
+      position: absolute;
+      inset: -14px;
+      background-image: var(--aurora-dark), var(--aurora-ribbons);
+      background-size: 300%, 200%;
+      background-position: 50% 50%, 50% 50%;
+      filter: blur(14px);
+      opacity: 0.48;
+      will-change: transform, background-position;
+      animation: aurora-shift 60s linear infinite;
+      -webkit-mask-image: radial-gradient(ellipse at 85% 12%, rgba(0, 0, 0, 1) 12%, rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0) 84%);
+      mask-image: radial-gradient(ellipse at 85% 12%, rgba(0, 0, 0, 1) 12%, rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0) 84%);
+    }
+
+    /* Brilho de ambientação adicional na base esquerda */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 14% 24%, rgba(47, 152, 81, 0.16) 0%, rgba(47, 152, 81, 0) 48%),
+        radial-gradient(circle at 82% 76%, rgba(29, 107, 106, 0.24) 0%, rgba(29, 107, 106, 0) 52%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Container Principal da Hero */
+    .hero__container {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero__content {
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* Pílula de Eyebrow com toque do .palette-1 */
+    .hero__eyebrow-wrap {
+      margin-bottom: 10px;
+    }
+
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 5px 13px;
+      border-radius: var(--radius-pill);
+      background: rgba(232, 241, 239, 0.08);
+      border: 1px solid rgba(217, 199, 165, 0.24);
+      font-size: clamp(0.76rem, 0.72rem + 0.18vw, 0.86rem);
+      font-weight: 600;
+      color: var(--sand-soft);
+      letter-spacing: 0.01em;
+      line-height: 1.28;
+    }
+
+    .hero__eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 10px rgba(82, 201, 119, 0.75);
+    }
+
+    .hero__title {
+      font-size: clamp(1.92rem, 1.48rem + 2.3vw, 3.6rem);
+      line-height: 1.06;
+      letter-spacing: -0.032em;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+
+    .hero__title-line {
+      display: block;
+    }
+
+    .hero__lead {
+      font-size: clamp(0.95rem, 0.92rem + 0.22vw, 1.125rem);
+      line-height: 1.52;
+      color: rgba(232, 241, 239, 0.84);
+      margin-bottom: 14px;
+      max-width: 48ch;
+    }
+
+    .hero__actions {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+    }
+
+    .hero__primary-btn {
+      width: 100%;
+      min-height: 52px;
+      font-size: 1rem;
+    }
+
+    .hero__secondary-btn {
+      align-self: center;
+      min-height: 38px;
+      padding: 4px 6px;
+    }
+
+    /* Vitrine Escultural da Imagem da Hero (IMG-01):
+       Tanto no celular quanto no computador, exibe a fotografia macro das gotas
+       em uma moldura escura refinada com o cartão de contato em vidro fosco integrado */
+    .hero-visual-stage {
+      position: relative;
+      width: 100%;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid rgba(217, 199, 165, 0.24);
+      box-shadow:
+        0 24px 52px -12px rgba(3, 12, 13, 0.72),
+        0 0 36px -10px rgba(47, 152, 81, 0.18);
+      background: var(--ink);
+      z-index: 2;
+    }
+
+    .hero-panel {
+      position: relative;
+      width: 100%;
+      height: clamp(136px, 20svh, 190px);
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .hero-panel__masked {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Leve vinheta escura na base da imagem para transição perfeita com o cartão */
+    .hero-panel__masked::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(7, 23, 24, 0.06) 0%,
+        rgba(7, 23, 24, 0.16) 55%,
+        rgba(7, 23, 24, 0.80) 100%
+      );
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .hero-panel__parallax {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      will-change: transform;
+    }
+
+    .hero-artwork-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--slot-pos, 60% 50%);
+      opacity: 0;
+      transition: opacity 600ms var(--ease-out);
+      z-index: 2;
+    }
+
+    .hero-photo.is-loaded {
+      opacity: 1;
+    }
+
+    /* Pulso lento de 10s no reflexo especular das gotas */
+    .droplet-glint {
+      animation: droplet-shimmer 10s ease-in-out infinite;
+    }
+
+    .droplet-glint--delayed {
+      animation-delay: -4.5s;
+    }
+
+    @keyframes droplet-shimmer {
+      0%, 100% {
+        opacity: 0.82;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Cartão de Contato na Hero (Glassmorphism escuro refinado) */
+    .hero-contact-card {
+      position: relative;
+      z-index: 6;
+      width: 100%;
+      background: rgba(12, 36, 37, 0.92);
+      border-top: 1px solid rgba(217, 199, 165, 0.22);
+      padding: 11px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--cream);
+      transition: transform 240ms var(--ease-out), background-color 240ms var(--ease-out);
+    }
+
+    @supports ((-webkit-backdrop-filter: blur(16px)) or (backdrop-filter: blur(16px))) {
+      .hero-contact-card {
+        background: rgba(12, 36, 37, 0.80);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+      }
+    }
+
+    .hero-contact-card__badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: #FAF7F2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 8px 18px -4px rgba(31, 164, 99, 0.45);
+      border: 1px solid rgba(250, 247, 242, 0.25);
+    }
+
+    .hero-contact-card__badge svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .hero-contact-card__body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .hero-contact-card__status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.79rem;
+      font-weight: 600;
+      color: #8CE3A6;
+      line-height: 1.25;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #52C977;
+      box-shadow: 0 0 0 3px rgba(82, 201, 119, 0.24);
+      animation: status-pulse 3.2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes status-pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 2px rgba(82, 201, 119, 0.18);
+      }
+      50% {
+        box-shadow: 0 0 0 6px rgba(82, 201, 119, 0.34);
+      }
+    }
+
+    .hero-contact-card__phone {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .hero-contact-card__reply {
+      font-size: 0.79rem;
+      color: rgba(232, 241, 239, 0.78);
+      line-height: 1.3;
+    }
+
+    /* Ajuste fino para telas curtas no celular (ex.: 360x640) — garante que o
+       botão principal e a vitrine com o cartão apareçam 100% na primeira tela */
+    @media (max-width: 1023px) and (max-height: 700px) {
+      :root {
+        --header-h: 54px;
+      }
+      .hero {
+        padding-top: calc(var(--header-h) + 6px);
+        padding-bottom: 12px;
+      }
+      .hero__container {
+        gap: 8px;
+      }
+      .hero__eyebrow-wrap {
+        margin-bottom: 6px;
+      }
+      .hero__eyebrow {
+        padding: 3px 10px;
+        font-size: 0.72rem;
+      }
+      .hero__title {
+        font-size: clamp(1.68rem, 5.1vw, 1.95rem);
+        margin-bottom: 6px;
+      }
+      .hero__lead {
+        font-size: 0.89rem;
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+      .hero__actions {
+        gap: 2px;
+      }
+      .hero__primary-btn {
+        min-height: 46px;
+        padding-block: 8px;
+      }
+      .hero__secondary-btn {
+        min-height: 32px;
+        padding: 2px 6px;
+        font-size: 0.88rem;
+      }
+      .hero-panel {
+        height: 98px;
+      }
+      .hero-contact-card {
+        padding: 8px 12px;
+      }
+      .hero-contact-card__badge {
+        width: 36px;
+        height: 36px;
+      }
+      .hero-contact-card__phone {
+        font-size: 1rem;
+      }
+    }
+
+    /* Ajuste para celular deitado (landscape <= 1023px) */
+    @media (max-width: 1023px) and (max-height: 500px) and (orientation: landscape) {
+      .hero__container {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        align-items: center;
+        gap: 20px;
+      }
+      .hero-panel {
+        height: 150px;
+      }
+    }
+
+    /* ==========================================================================
+       HERO NO COMPUTADOR (>= 1024px) — GRID ASSIMÉTRICO DE ALTO IMPACTO
+       ========================================================================== */
+    @media (min-width: 1024px) {
+      .hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        max-height: 980px;
+        padding-block: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero__container {
+        padding-top: calc(var(--header-h) + 32px);
+        padding-bottom: 56px;
+        min-height: min(100svh, 960px);
+        display: grid;
+        grid-template-columns: 1.06fr 0.94fr;
+        align-items: center;
+        gap: clamp(36px, 4.5vw, 64px);
+      }
+
+      .hero__content {
+        width: 100%;
+        max-width: 560px;
+      }
+
+      .hero__eyebrow-wrap {
+        margin-bottom: 18px;
+      }
+
+      .hero__title {
+        margin-bottom: 20px;
+      }
+
+      .hero__lead {
+        font-size: 1.1rem;
+        line-height: 1.62;
+        margin-bottom: 30px;
+      }
+
+      .hero__actions {
+        flex-direction: row;
+        align-items: center;
+        gap: 22px;
+        width: auto;
+      }
+
+      .hero__primary-btn {
+        width: auto;
+        min-height: 56px;
+        padding-inline: 28px;
+        font-size: 1.02rem;
+      }
+
+      .hero__secondary-btn {
+        min-height: 46px;
+      }
+
+      .hero-visual-stage {
+        border-radius: 24px;
+        border: 1px solid rgba(217, 199, 165, 0.28);
+        box-shadow:
+          0 32px 68px -16px rgba(3, 10, 11, 0.78),
+          0 0 48px -12px rgba(47, 152, 81, 0.22);
+      }
+
+      .hero-panel {
+        height: clamp(320px, 44vh, 420px);
+      }
+
+      .hero-contact-card {
+        padding: 18px 24px;
+        gap: 16px;
+      }
+
+      .hero-contact-card__badge {
+        width: 48px;
+        height: 48px;
+      }
+
+      .hero-contact-card__phone {
+        font-size: 1.22rem;
+      }
+
+      .hero-contact-card__reply {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* ==========================================================================
+       7. SEÇÃO 2: FAIXA DE DIFERENCIAIS (Fundo Areia Quente #EFE6D8)
+       ========================================================================== */
+    .trust-strip {
+      position: relative;
+      background-color: var(--sand-bg);
+      padding-top: clamp(28px, 4vw, 44px);
+      padding-bottom: clamp(28px, 4vw, 44px);
+    }
+
+    .trust-strip__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 600px) {
+      .trust-strip__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .trust-strip__grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+      }
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: var(--cream);
+      border: 1px solid rgba(15, 42, 43, 0.08);
+      box-shadow: 0 10px 24px -14px rgba(15, 42, 43, 0.10);
+    }
+
+    .trust-item__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      color: var(--cream);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 14px -4px rgba(22, 75, 43, 0.30);
+    }
+
+    .trust-item__icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .trust-item__text {
+      font-weight: 600;
+      font-size: 0.96rem;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    /* ==========================================================================
+       8. SEÇÃO 3: SERVIÇOS (Fundo Verde-Névoa Mineral #DCECE8)
+       ========================================================================== */
+    .services-section {
+      position: relative;
+      background-color: var(--mist);
+      padding-top: clamp(36px, 5vw, 64px);
+      padding-bottom: clamp(56px, 7vw, 88px);
+    }
+
+    .section-header {
+      margin-bottom: clamp(32px, 4.5vw, 52px);
+      max-width: 640px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 13px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 42, 43, 0.07);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-mid);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 1.45rem + 1.7vw, 2.75rem);
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 0.96rem + 0.22vw, 1.08rem);
+      color: var(--ink-muted);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(24px, 3vw, 36px);
+    }
+
+    @media (min-width: 820px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .service-card {
+      background: var(--cream);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(15, 42, 43, 0.09);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 280ms var(--ease-out), box-shadow 280ms var(--ease-out);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-card-hover);
+      }
+    }
+
+    /* Slot de imagem 4:5 com degradê na base para fundir-se ao card */
+    .service-card__media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: 360px;
+      overflow: hidden;
+      background: linear-gradient(145deg, var(--ink) 0%, var(--teal) 58%, var(--teal-soft) 100%);
+    }
+
+    .service-card__media-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 900ms var(--ease-out);
+    }
+
+    .service-card__placeholder-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-card__media .slot-img {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+
+    .service-card__media::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 96px;
+      background: linear-gradient(
+        to top,
+        var(--cream) 0%,
+        rgba(250, 247, 242, 0.72) 32%,
+        rgba(250, 247, 242, 0.28) 65%,
+        rgba(250, 247, 242, 0) 100%
+      );
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .service-card__body {
+      padding: clamp(22px, 3vw, 32px);
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 12px;
+    }
+
+    .service-card__top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .service-card__title {
+      font-size: clamp(1.4rem, 1.2rem + 0.7vw, 1.75rem);
+      color: var(--ink);
+    }
+
+    .service-card__price {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      color: #FAF7F2;
+      font-weight: 600;
+      font-size: 0.88rem;
+      box-shadow: 0 6px 16px -4px rgba(22, 75, 43, 0.35);
+      white-space: nowrap;
+    }
+
+    .service-card__desc {
+      color: var(--ink-muted);
+      font-size: 1rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .service-card__footer {
+      padding-top: 12px;
+      margin-top: 4px;
+      border-top: 1px solid rgba(15, 42, 43, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .service-card__note {
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+
+    /* ==========================================================================
+       9. SEÇÃO 4: COMO FUNCIONA (Degradê escuro --ink p/ --teal, pausa visual)
+       ========================================================================== */
+    .steps-section {
+      position: relative;
+      background: linear-gradient(180deg, var(--ink) 0%, #15494A 54%, var(--teal) 100%);
+      color: var(--cream);
+      padding-block: clamp(56px, 7vw, 92px);
+    }
+
+    .steps-section .section-eyebrow {
+      background: rgba(217, 199, 165, 0.14);
+      color: var(--sand);
+    }
+
+    .steps-section .section-title {
+      color: var(--cream);
+    }
+
+    .steps-grid-wrap {
+      position: relative;
+      margin-top: clamp(36px, 5vw, 52px);
+    }
+
+    .steps-connector {
+      display: none;
+    }
+
+    @media (min-width: 900px) {
+      .steps-connector {
+        display: block;
+        position: absolute;
+        top: 54px;
+        left: 12%;
+        right: 12%;
+        height: 2px;
+        background: rgba(232, 241, 239, 0.14);
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .steps-connector__fill {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, var(--sand) 0%, #52C977 100%);
+        transform: scaleX(1);
+        transform-origin: left center;
+        transition: transform 800ms var(--ease-out);
+      }
+    }
+
+    .steps-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 900px) {
+      .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+    }
+
+    .step-card {
+      background: #113435;
+      border: 1px solid rgba(232, 241, 239, 0.16);
+      border-radius: var(--radius-card);
+      padding: clamp(24px, 3vw, 32px);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 18px 38px -18px rgba(6, 18, 19, 0.45);
+      transition: border-color 400ms var(--ease-out), background-color 400ms var(--ease-out);
+    }
+
+    .step-card.is-lit {
+      border-color: rgba(217, 199, 165, 0.45);
+      background: #133A3B;
+    }
+
+    .step-card__number {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      color: #FAF7F2;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px -4px rgba(17, 54, 33, 0.5);
+    }
+
+    .step-card__title {
+      font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.45rem);
+      color: var(--cream);
+    }
+
+    .step-card__desc {
+      color: var(--mist);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       10. SEÇÃO 5: ANTES E DEPOIS (Fundo Creme Aquecido #F3ECE1)
+       ========================================================================== */
+    .compare-section {
+      position: relative;
+      background-color: var(--cream-warm);
+      padding-top: clamp(44px, 6vw, 72px);
+      padding-bottom: clamp(56px, 7vw, 88px);
+    }
+
+    .compare-header {
+      text-align: center;
+      margin-inline: auto;
+      margin-bottom: clamp(28px, 4vw, 40px);
+    }
+
+    .compare-header .section-subtitle {
+      margin-inline: auto;
+    }
+
+    .compare-widget {
+      --compare-pos: 50%;
+      position: relative;
+      width: 100%;
+      max-width: 920px;
+      margin-inline: auto;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(15, 42, 43, 0.12);
+      background-color: var(--ink);
+      user-select: none;
+    }
+
+    .compare-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .compare-layer--before {
+      z-index: 2;
+      -webkit-clip-path: inset(0 calc(100% - var(--compare-pos)) 0 0);
+      clip-path: inset(0 calc(100% - var(--compare-pos)) 0 0);
+    }
+
+    .compare-layer--after {
+      z-index: 1;
+    }
+
+    .compare-layer__svg,
+    .compare-layer .slot-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .compare-pill {
+      position: absolute;
+      bottom: 18px;
+      z-index: 6;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+    }
+
+    .compare-pill--before {
+      left: 18px;
+      background: rgba(15, 42, 43, 0.86);
+      color: var(--cream);
+      border: 1px solid rgba(250, 247, 242, 0.18);
+    }
+
+    .compare-pill--after {
+      right: 18px;
+      background: rgba(250, 247, 242, 0.92);
+      color: var(--ink);
+      border: 1px solid rgba(15, 42, 43, 0.14);
+    }
+
+    .compare-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--compare-pos);
+      width: 2px;
+      background: var(--cream);
+      box-shadow: 0 0 12px rgba(15, 42, 43, 0.35);
+      transform: translateX(-50%);
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .compare-handle__Knob {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--ink);
+      border: 2px solid var(--teal);
+      box-shadow: 0 8px 22px rgba(15, 42, 43, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+    }
+
+    .compare-handle__Knob svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .compare-range {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+      margin: 0;
+    }
+
+    .compare-range:focus-visible ~ .compare-handle .compare-handle__Knob {
+      outline: 3px solid var(--sand);
+      outline-offset: 3px;
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+
+    /* ==========================================================================
+       11. SEÇÃO 6: PERGUNTAS FREQUENTES (Fundo Verde-Sálvia #E2F0EC)
+       ========================================================================== */
+    .faq-section {
+      position: relative;
+      background-color: var(--mist-sage);
+      padding-top: clamp(36px, 5vw, 60px);
+      padding-bottom: clamp(56px, 7vw, 84px);
+    }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(28px, 4vw, 56px);
+      align-items: start;
+    }
+
+    @media (min-width: 920px) {
+      .faq-layout {
+        grid-template-columns: 0.9fr 1.3fr;
+      }
+    }
+
+    .faq-list {
+      background: var(--cream);
+      border-radius: var(--radius-card);
+      border: 1px solid rgba(15, 42, 43, 0.08);
+      box-shadow: var(--shadow-card);
+      padding-inline: clamp(20px, 3vw, 32px);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(15, 42, 43, 0.09);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 64px;
+      padding-block: 20px;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: clamp(1.06rem, 1rem + 0.28vw, 1.2rem);
+      font-weight: 600;
+      color: var(--ink);
+      user-select: none;
+    }
+
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-summary::marker {
+      content: "";
+    }
+
+    .faq-icon {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--mist);
+      color: var(--teal);
+      flex-shrink: 0;
+      transition: background-color 240ms var(--ease-out), color 240ms var(--ease-out);
+    }
+
+    .faq-icon::before,
+    .faq-icon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 2px;
+      border-radius: 2px;
+      background-color: currentColor;
+      transform: translate(-50%, -50%);
+      transition: transform 260ms var(--ease-out), opacity 220ms var(--ease-out);
+    }
+
+    .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .faq-item[open] .faq-icon {
+      background: var(--teal);
+      color: var(--cream);
+    }
+
+    .faq-item[open] .faq-icon::after {
+      transform: translate(-50%, -50%) rotate(0deg);
+      opacity: 0;
+    }
+
+    .faq-answer-wrap {
+      overflow: hidden;
+      transition: height 280ms var(--ease-out), opacity 260ms var(--ease-out);
+    }
+
+    .faq-answer {
+      padding-bottom: 22px;
+      color: var(--ink-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       12. SEÇÃO 7: CHAMADA FINAL (Degradê escuro + IMG-06 muito suave por baixo)
+       ========================================================================== */
+    .final-cta {
+      position: relative;
+      background: linear-gradient(155deg, var(--ink) 0%, var(--teal) 60%, var(--ink-deep) 100%);
+      color: var(--cream);
+      padding-block: clamp(68px, 8vw, 108px);
+      overflow: hidden;
+    }
+
+    .final-cta__bg {
+      position: absolute;
+      inset: -28px 0;
+      z-index: 1;
+      opacity: 0.24;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .final-cta__bg-svg,
+    .final-cta__bg .slot-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .final-cta__veil {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(180deg, var(--ink) 0%, rgba(15, 42, 43, 0.52) 28%, rgba(29, 107, 106, 0.60) 72%, var(--ink-deep) 100%);
+      pointer-events: none;
+    }
+
+    .final-cta__inner {
+      position: relative;
+      z-index: 3;
+      max-width: 680px;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .final-cta__title {
+      font-size: clamp(2rem, 1.55rem + 2vw, 3.1rem);
+      color: var(--cream);
+    }
+
+    .final-cta__lead {
+      font-size: clamp(1.02rem, 0.98rem + 0.25vw, 1.15rem);
+      color: var(--mist);
+      margin-bottom: 10px;
+    }
+
+    .final-cta__btn {
+      min-height: 56px;
+      padding-inline: 34px;
+      font-size: 1.05rem;
+    }
+
+    /* ==========================================================================
+       13. SEÇÃO 8: RODAPÉ + BEAMS BACKGROUND NO NOME DA MARCA AO FINAL
+       ========================================================================== */
+    .site-footer {
+      position: relative;
+      background-color: var(--ink-deep);
+      color: var(--mist);
+      border-top: 1px solid rgba(232, 241, 239, 0.10);
+      overflow: hidden;
+    }
+
+    /* Vitrine Monumental do Nome da Marca com BeamsBackground (beams-background.tsx) */
+    .brand-beams-showcase {
+      position: relative;
+      width: 100%;
+      min-height: clamp(280px, 42vh, 420px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #051112;
+      border-bottom: 1px solid rgba(232, 241, 239, 0.08);
+      padding: clamp(48px, 7vw, 84px) var(--gutter);
+    }
+
+    .beams-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(15px);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .beams-backdrop-pulse {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 17, 18, 0.08);
+      -webkit-backdrop-filter: blur(36px);
+      backdrop-filter: blur(36px);
+      animation: beams-breathe 10s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    @keyframes beams-breathe {
+      0%, 100% {
+        opacity: 0.08;
+      }
+      50% {
+        opacity: 0.22;
+      }
+    }
+
+    .brand-beams-showcase__content {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 14px;
+      max-width: 900px;
+    }
+
+    .brand-beams-showcase__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(250, 247, 242, 0.07);
+      border: 1px solid rgba(217, 199, 165, 0.24);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sand);
+    }
+
+    .brand-beams-showcase__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 8vw, 5.6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      color: var(--cream);
+      text-shadow: 0 12px 36px rgba(5, 17, 18, 0.65);
+    }
+
+    .brand-beams-showcase__slogan {
+      font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+      color: rgba(232, 241, 239, 0.76);
+      letter-spacing: -0.01em;
+      max-width: 46ch;
+    }
+
+    .site-footer__main {
+      position: relative;
+      z-index: 5;
+      padding-top: clamp(36px, 4.5vw, 52px);
+      padding-bottom: calc(clamp(32px, 4vw, 44px) + env(safe-area-inset-bottom, 0px));
+    }
+
+    .site-footer__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(232, 241, 239, 0.10);
+    }
+
+    @media (min-width: 768px) {
+      .site-footer__grid {
+        grid-template-columns: 1.2fr 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .site-footer__brand {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .site-footer__name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .site-footer__slogan {
+      font-size: 0.94rem;
+      color: var(--mist);
+      max-width: 36ch;
+    }
+
+    .site-footer__group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.94rem;
+    }
+
+    .site-footer__label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sand);
+      margin-bottom: 2px;
+    }
+
+    .site-footer__link {
+      color: var(--cream);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+      transition: color 200ms var(--ease-out);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .site-footer__link:hover {
+        color: var(--sand);
+      }
+    }
+
+    .site-footer__bottom {
+      padding-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.86rem;
+      color: rgba(232, 241, 239, 0.72);
+    }
+
+    /* ==========================================================================
+       14. BOTÃO FIXO DE WHATSAPP (SOMENTE NO CELULAR <= 1023px)
+       ========================================================================== */
+    .floating-wa {
+      position: fixed;
+      right: 16px;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+      z-index: 95;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22AD68 0%, var(--wa) 60%, var(--wa-dark) 100%);
+      color: #FAF7F2;
+      font-weight: 600;
+      font-size: 0.94rem;
+      box-shadow: var(--shadow-wa);
+      border: 1px solid rgba(250, 247, 242, 0.22);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition:
+        opacity 340ms var(--ease-out),
+        transform 340ms var(--ease-out),
+        visibility 340ms var(--ease-out);
+    }
+
+    .floating-wa svg {
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+    }
+
+    .floating-wa span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .floating-wa.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .floating-wa.pulse-once {
+      animation: float-wa-pulse 750ms var(--ease-out) 1;
+    }
+
+    @keyframes float-wa-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(31, 164, 99, 0.50), var(--shadow-wa);
+      }
+      100% {
+        box-shadow: 0 0 0 16px rgba(31, 164, 99, 0), var(--shadow-wa);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .floating-wa {
+        display: none !important;
+      }
+    }
+
+    /* ==========================================================================
+       15. ANIMAÇÕES DE ENTRADA NAS FRASES DE DESTAQUE (AURORA DEMO: y: 40 -> 0,
+           duration: 0.8s, easeInOut) E REVELAÇÕES DE ROLAGEM
+       ========================================================================== */
+    @media (prefers-reduced-motion: no-preference) {
+      /* Frases de destaque da Hero (initial: opacity 0, y 40 -> animate: opacity 1, y 0, 800ms ease-in-out) */
+      html.js-ready .hero-phrase-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 800ms var(--ease-phrase) var(--phrase-delay, 120ms),
+          transform 800ms var(--ease-phrase) var(--phrase-delay, 120ms);
+      }
+
+      html.js-ready.hero-entered .hero-phrase-reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      html.js-ready .hero-fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 750ms var(--ease-out) var(--enter-delay, 280ms),
+          transform 750ms var(--ease-out) var(--enter-delay, 280ms);
+      }
+
+      html.js-ready.hero-entered .hero-fade-up {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      html.js-ready .hero-visual-stage {
+        opacity: 0;
+        transform: translateY(24px) scale(0.985);
+        transition:
+          opacity 840ms var(--ease-out) 180ms,
+          transform 840ms var(--ease-out) 180ms;
+      }
+
+
+
+      html.js-ready.hero-entered .hero-visual-stage {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      /* Animação de entrada nas frases e seções ao rolar (y: 40px -> 0, 800ms) */
+      html.js-ready [data-reveal] {
+        opacity: 0;
+        transition:
+          opacity 780ms var(--ease-phrase) var(--stagger, 0ms),
+          transform 780ms var(--ease-phrase) var(--stagger, 0ms);
+      }
+
+      html.js-ready [data-reveal="up"] {
+        transform: translateY(40px);
+      }
+
+      html.js-ready [data-reveal="left"] {
+        transform: translateX(-36px);
+      }
+
+      html.js-ready [data-reveal="right"] {
+        transform: translateX(36px);
+      }
+
+      html.js-ready [data-reveal].is-revealed {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+
+      /* Zoom lento nas imagens dos cards de serviço (1.06 -> 1) */
+      html.js-ready .service-card .service-card__media-inner {
+        transform: scale(1.06);
+      }
+
+      html.js-ready .service-card.is-revealed .service-card__media-inner {
+        transform: scale(1);
+      }
+
+      /* Linha conectora em "Como funciona" */
+      html.js-ready .steps-connector__fill {
+        transform: scaleX(0);
+      }
+
+      html.js-ready .steps-grid-wrap.is-revealed .steps-connector__fill {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de progresso de leitura com o gradiente .palette-1 -->
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress__bar palette-1" id="reading-progress-bar"></div>
+  </div>
+
+  <!-- ========================================================================
+       1. CABEÇALHO
+       ======================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <!-- LOGO: MARCA LUME ESTOFADOS, assets/logo.svg -->
+      <a href="#inicio" class="brand-logo" data-slot="LOGO" aria-label="Lume Estofados — Ir para o início">
+        <span class="slot-badge">LOGO · assets/logo.svg</span>
+        <span class="brand-logo__default">
+          <span class="brand-logo__mark palette-1" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 3.2C12 3.2 7.2 8.9 7.2 12.7C7.2 15.35 9.35 17.5 12 17.5C14.65 17.5 16.8 15.35 16.8 12.7C16.8 8.9 12 3.2 12 3.2Z" stroke="#FAF7F2" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.1 12.9C10.2 14.1 11.1 14.9 12.3 15" stroke="#D9C7A5" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M4.5 20.2C7.3 18.8 10.1 18.8 12 19.6C13.9 20.4 16.7 20.4 19.5 19" stroke="#FAF7F2" stroke-opacity="0.75" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span data-config="nome">Lume Estofados</span>
+        </span>
+        <img
+          src="assets/logo.svg"
+          alt="Lume Estofados"
+          width="160"
+          height="34"
+          decoding="async"
+          class="brand-logo__custom-img slot-img"
+          onload="this.classList.add('is-loaded');this.closest('[data-slot]').classList.add('has-image');"
+          onerror="this.closest('[data-slot]').classList.add('is-fallback');"
+        >
+      </a>
+
+      <!-- Navegação Computador -->
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#servicos" class="desktop-nav__link" data-nav-link="servicos">Serviços</a>
+        <a href="#como-funciona" class="desktop-nav__link" data-nav-link="como-funciona">Como funciona</a>
+        <a href="#perguntas" class="desktop-nav__link" data-nav-link="perguntas">Perguntas</a>
+      </nav>
+
+      <!-- Ações à direita -->
+      <div class="header-actions">
+        <a
+          href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+          target="_blank"
+          rel="noopener"
+          class="btn btn--wa btn--compact header-cta"
+          data-wa-link
+        >
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.53 7.6C9.3 7.1 9.07 7.09 8.86 7.08C8.68 7.07 8.48 7.07 8.28 7.07C8.08 7.07 7.75 7.15 7.48 7.45C7.2 7.75 6.43 8.47 6.43 9.94C6.43 11.41 7.5 12.83 7.65 13.03C7.8 13.23 9.72 16.34 12.76 17.54C15.29 18.54 15.8 18.34 16.35 18.29C16.9 18.24 18.12 17.57 18.37 16.87C18.62 16.17 18.62 15.57 18.55 15.45C18.47 15.32 18.27 15.25 17.97 15.1C17.67 14.95 16.2 14.23 15.92 14.13C15.65 14.03 15.45 13.98 15.25 14.28C15.05 14.58 14.48 15.25 14.3 15.45C14.12 15.65 13.95 15.68 13.65 15.53C13.35 15.38 12.38 15.06 11.24 14.04C10.35 13.25 9.75 12.27 9.57 11.97C9.4 11.67 9.55 11.51 9.7 11.36C9.84 11.23 10 11.01 10.15 10.83C10.3 10.66 10.35 10.53 10.45 10.33C10.55 10.13 10.5 9.96 10.42 9.81C10.35 9.66 9.77 8.18 9.53 7.6Z" fill="currentColor"/>
+          </svg>
+          <span>Pedir orçamento</span>
+        </a>
+
+        <!-- Botão Menu Mobile -->
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu-panel"
+          aria-label="Abrir menu de navegação"
+        >
+          <span class="menu-toggle__bars" aria-hidden="true">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Painel de Menu Mobile (tela cheia) -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop" aria-hidden="true"></div>
+  <div
+    class="mobile-menu-panel"
+    id="mobile-menu-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu principal"
+    aria-hidden="true"
+  >
+    <nav class="mobile-menu-nav" aria-label="Menu celular">
+      <a href="#servicos" class="mobile-menu-nav__link" style="--item-idx: 0;" data-mobile-link>
+        <span>Serviços</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a href="#como-funciona" class="mobile-menu-nav__link" style="--item-idx: 1;" data-mobile-link>
+        <span>Como funciona</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a href="#perguntas" class="mobile-menu-nav__link" style="--item-idx: 2;" data-mobile-link>
+        <span>Perguntas</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </nav>
+
+    <div class="mobile-menu-footer">
+      <div class="mobile-menu-meta">
+        <strong data-config="horarioCurto">Atendimento hoje até 18h</strong>
+        <span><span data-config="telefoneExibicao">(41) 90000-0000</span> · <span data-config="cidade">Curitiba, PR</span></span>
+      </div>
+      <a
+        href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+        target="_blank"
+        rel="noopener"
+        class="btn btn--wa"
+        data-wa-link
+        data-mobile-link
+      >
+        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.53 7.6C9.3 7.1 9.07 7.09 8.86 7.08C8.68 7.07 8.48 7.07 8.28 7.07C8.08 7.07 7.75 7.15 7.48 7.45C7.2 7.75 6.43 8.47 6.43 9.94C6.43 11.41 7.5 12.83 7.65 13.03C7.8 13.23 9.72 16.34 12.76 17.54C15.29 18.54 15.8 18.34 16.35 18.29C16.9 18.24 18.12 17.57 18.37 16.87C18.62 16.17 18.62 15.57 18.55 15.45C18.47 15.32 18.27 15.25 17.97 15.1C17.67 14.95 16.2 14.23 15.92 14.13C15.65 14.03 15.45 13.98 15.25 14.28C15.05 14.58 14.48 15.25 14.3 15.45C14.12 15.65 13.95 15.68 13.65 15.53C13.35 15.38 12.38 15.06 11.24 14.04C10.35 13.25 9.75 12.27 9.57 11.97C9.4 11.67 9.55 11.51 9.7 11.36C9.84 11.23 10 11.01 10.15 10.83C10.3 10.66 10.35 10.53 10.45 10.33C10.55 10.13 10.5 9.96 10.42 9.81C10.35 9.66 9.77 8.18 9.53 7.6Z" fill="currentColor"/>
+        </svg>
+        <span>Pedir orçamento no WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <main id="conteudo-principal">
+    <!-- ======================================================================
+         2. HERO (ATMOSFERA ESCURA + AURORA BACKGROUND + FRASE EM DESTAQUE)
+         ====================================================================== -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <!-- Efeito Aurora Background integrado -->
+      <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-bg__layer"></div>
+      </div>
+
+      <div class="container hero__container">
+        <!-- Coluna de texto com entrada estilo AuroraBackgroundDemo (y: 40px -> 0, 0.8s) -->
+        <div class="hero__content">
+          <div class="hero__eyebrow-wrap hero-phrase-reveal" style="--phrase-delay: 80ms;">
+            <p class="hero__eyebrow">
+              <span class="hero__eyebrow-dot palette-1" aria-hidden="true"></span>
+              <span data-config="heroEyebrow">Lume Estofados · Higienização e impermeabilização em Curitiba</span>
+            </p>
+          </div>
+
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__title-line hero-phrase-reveal" style="--phrase-delay: 180ms;">
+              Seu sofá limpo de&nbsp;verdade.
+            </span>
+            <span class="hero__title-line palette-1-text hero-phrase-reveal" style="--phrase-delay: 300ms;">
+              E protegido do próximo&nbsp;acidente.
+            </span>
+          </h1>
+
+          <p class="hero__lead hero-phrase-reveal" style="--phrase-delay: 420ms;">
+            Higienização profunda das fibras e impermeabilização que dá tempo de limpar antes de&nbsp;manchar.
+          </p>
+
+          <div class="hero__actions hero-fade-up" style="--enter-delay: 520ms;">
+            <a
+              href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+              target="_blank"
+              rel="noopener"
+              class="btn btn--wa btn--wa-sheen hero__primary-btn"
+              id="hero-primary-btn"
+              data-wa-link
+            >
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.53 7.6C9.3 7.1 9.07 7.09 8.86 7.08C8.68 7.07 8.48 7.07 8.28 7.07C8.08 7.07 7.75 7.15 7.48 7.45C7.2 7.75 6.43 8.47 6.43 9.94C6.43 11.41 7.5 12.83 7.65 13.03C7.8 13.23 9.72 16.34 12.76 17.54C15.29 18.54 15.8 18.34 16.35 18.29C16.9 18.24 18.12 17.57 18.37 16.87C18.62 16.17 18.62 15.57 18.55 15.45C18.47 15.32 18.27 15.25 17.97 15.1C17.67 14.95 16.2 14.23 15.92 14.13C15.65 14.03 15.45 13.98 15.25 14.28C15.05 14.58 14.48 15.25 14.3 15.45C14.12 15.65 13.95 15.68 13.65 15.53C13.35 15.38 12.38 15.06 11.24 14.04C10.35 13.25 9.75 12.27 9.57 11.97C9.4 11.67 9.55 11.51 9.7 11.36C9.84 11.23 10 11.01 10.15 10.83C10.3 10.66 10.35 10.53 10.45 10.33C10.55 10.13 10.5 9.96 10.42 9.81C10.35 9.66 9.77 8.18 9.53 7.6Z" fill="currentColor"/>
+              </svg>
+              <span>Pedir orçamento no WhatsApp</span>
+            </a>
+
+            <a href="#como-funciona" class="btn-secondary btn-secondary--light hero__secondary-btn">
+              <span class="btn-secondary__label">Ver como funciona</span>
+              <svg class="btn-secondary__arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4.167 10H15.833M15.833 10L10.833 5M15.833 10L10.833 15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Vitrine Visual da Hero (no celular, card arredondado de alto contraste; no desktop, painel amplo à direita) -->
+        <div class="hero-visual-stage">
+          <!-- IMG-01: HERO PRINCIPAL, assets/hero.jpg, 3:2 (2400x1600) -->
+          <div class="hero-panel" data-slot="IMG-01">
+            <span class="slot-badge slot-badge--hero">IMG-01 · assets/hero.jpg · 3:2</span>
+
+            <div class="hero-panel__masked">
+              <div class="hero-panel__parallax" id="hero-parallax">
+                <!-- Composição visual premium em SVG inline (< 60KB) -->
+                <svg
+                  class="hero-artwork-svg"
+                  viewBox="0 0 1200 800"
+                  preserveAspectRatio="xMidYMid slice"
+                  role="img"
+                  aria-label="Close de tecido nobre em verde-petróleo com gotas de água repelidas pela impermeabilização"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient id="fabric-base" x1="0%" y1="0%" x2="95%" y2="100%">
+                      <stop offset="0%" stop-color="#4A9A94"/>
+                      <stop offset="22%" stop-color="#2D7D7A"/>
+                      <stop offset="58%" stop-color="#185455"/>
+                      <stop offset="86%" stop-color="#0F2A2B"/>
+                      <stop offset="100%" stop-color="#0A1E1F"/>
+                    </linearGradient>
+
+                    <radialGradient id="top-left-keylight" cx="18%" cy="14%" r="68%">
+                      <stop offset="0%" stop-color="#E8F1EF" stop-opacity="0.58"/>
+                      <stop offset="26%" stop-color="#D9C7A5" stop-opacity="0.22"/>
+                      <stop offset="58%" stop-color="#3E8F8A" stop-opacity="0.14"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </radialGradient>
+
+                    <radialGradient id="mid-soft-glow" cx="56%" cy="34%" r="48%">
+                      <stop offset="0%" stop-color="#E8F1EF" stop-opacity="0.26"/>
+                      <stop offset="55%" stop-color="#3E8F8A" stop-opacity="0.10"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </radialGradient>
+
+                    <radialGradient id="calm-corner-vignette" cx="84%" cy="84%" r="52%">
+                      <stop offset="0%" stop-color="#0C2324" stop-opacity="0.72"/>
+                      <stop offset="65%" stop-color="#0F2A2B" stop-opacity="0.28"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </radialGradient>
+
+                    <linearGradient id="fold-crest-1" x1="12%" y1="4%" x2="78%" y2="74%">
+                      <stop offset="0%" stop-color="#E8F1EF" stop-opacity="0.42"/>
+                      <stop offset="32%" stop-color="#D9C7A5" stop-opacity="0.16"/>
+                      <stop offset="70%" stop-color="#3E8F8A" stop-opacity="0.18"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </linearGradient>
+
+                    <linearGradient id="fold-valley-1" x1="20%" y1="15%" x2="80%" y2="85%">
+                      <stop offset="0%" stop-color="#0A1F20" stop-opacity="0.55"/>
+                      <stop offset="50%" stop-color="#0F2A2B" stop-opacity="0.72"/>
+                      <stop offset="100%" stop-color="#09191A" stop-opacity="0.15"/>
+                    </linearGradient>
+
+                    <linearGradient id="fold-crest-2" x1="25%" y1="10%" x2="92%" y2="82%">
+                      <stop offset="0%" stop-color="#E8F1EF" stop-opacity="0.34"/>
+                      <stop offset="45%" stop-color="#3E8F8A" stop-opacity="0.26"/>
+                      <stop offset="100%" stop-color="#144445" stop-opacity="0.05"/>
+                    </linearGradient>
+
+                    <linearGradient id="fold-crest-3" x1="0%" y1="35%" x2="88%" y2="95%">
+                      <stop offset="0%" stop-color="#D9C7A5" stop-opacity="0.18"/>
+                      <stop offset="38%" stop-color="#3E8F8A" stop-opacity="0.25"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </linearGradient>
+
+                    <filter id="static-fabric-weave" x="0" y="0" width="1200" height="800" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feTurbulence type="fractalNoise" baseFrequency="0.45 0.65" numOctaves="2" seed="14" result="weave"/>
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0.91
+                                0 0 0 0 0.95
+                                0 0 0 0 0.94
+                                0 0 0 0.055 0"
+                      />
+                    </filter>
+
+                    <radialGradient id="drop-shadow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#041011" stop-opacity="0.68"/>
+                      <stop offset="55%" stop-color="#07191A" stop-opacity="0.34"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </radialGradient>
+
+                    <radialGradient id="drop-caustic" cx="68%" cy="72%" r="45%">
+                      <stop offset="0%" stop-color="#E8F1EF" stop-opacity="0.55"/>
+                      <stop offset="48%" stop-color="#7BC8C2" stop-opacity="0.24"/>
+                      <stop offset="100%" stop-color="#1D6B6A" stop-opacity="0"/>
+                    </radialGradient>
+
+                    <radialGradient id="drop-body" cx="34%" cy="28%" r="70%">
+                      <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.72"/>
+                      <stop offset="18%" stop-color="#9AD5D0" stop-opacity="0.36"/>
+                      <stop offset="54%" stop-color="#1B5E5E" stop-opacity="0.58"/>
+                      <stop offset="84%" stop-color="#0C2526" stop-opacity="0.82"/>
+                      <stop offset="100%" stop-color="#6EBDB7" stop-opacity="0.52"/>
+                    </radialGradient>
+
+                    <linearGradient id="drop-rim" x1="15%" y1="10%" x2="85%" y2="90%">
+                      <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.85"/>
+                      <stop offset="45%" stop-color="#E8F1EF" stop-opacity="0.20"/>
+                      <stop offset="100%" stop-color="#9ED8D3" stop-opacity="0.62"/>
+                    </linearGradient>
+
+                    <radialGradient id="drop-spec-main" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#FAF7F2" stop-opacity="0.96"/>
+                      <stop offset="55%" stop-color="#FAF7F2" stop-opacity="0.45"/>
+                      <stop offset="100%" stop-color="#FAF7F2" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+
+                  <rect width="1200" height="800" fill="url(#fabric-base)"/>
+                  <rect width="1200" height="800" fill="url(#top-left-keylight)"/>
+                  <rect width="1200" height="800" fill="url(#mid-soft-glow)"/>
+
+                  <path d="M-80 180 C 240 90, 560 280, 920 490 C 1060 572, 1160 630, 1280 670 L 1280 840 L -80 840 Z" fill="url(#fold-valley-1)"/>
+                  <path d="M-60 40 C 260 -20, 590 170, 930 390 C 1070 480, 1170 540, 1280 580 L 1280 720 C 1120 670, 960 580, 780 460 C 470 255, 190 120, -60 190 Z" fill="url(#fold-crest-1)"/>
+                  <path d="M120 -40 C 430 60, 740 240, 1120 420 L 1260 480 L 1260 610 C 920 460, 610 270, 290 110 C 180 55, 80 15, -20 0 Z" fill="url(#fold-valley-1)" opacity="0.65"/>
+                  <path d="M240 -60 C 540 30, 840 195, 1240 365 L 1240 490 C 890 330, 590 165, 290 35 C 190 -10, 120 -35, 60 -60 Z" fill="url(#fold-crest-2)"/>
+                  <path d="M-90 340 C 180 300, 460 430, 790 620 C 920 695, 1050 755, 1220 800 L -90 800 Z" fill="url(#fold-crest-3)"/>
+
+                  <path d="M-40 118 C 265 48, 585 232, 935 452 C 1075 540, 1165 592, 1260 628" stroke="#E8F1EF" stroke-opacity="0.16" stroke-width="1.5" fill="none"/>
+                  <path d="M170 -30 C 485 72, 795 252, 1220 432" stroke="#D9C7A5" stroke-opacity="0.13" stroke-width="1.2" fill="none"/>
+
+                  <rect width="1200" height="800" fill="url(#calm-corner-vignette)"/>
+                  <rect width="1200" height="800" filter="url(#static-fabric-weave)" opacity="0.75"/>
+
+                  <!-- Gotas d'água -->
+                  <g transform="translate(760, 435)">
+                    <ellipse cx="14" cy="24" rx="52" ry="26" fill="url(#drop-shadow)"/>
+                    <ellipse cx="22" cy="22" rx="34" ry="16" fill="url(#drop-caustic)"/>
+                    <path d="M -44 2 C -46 -24, -22 -44, 4 -44 C 31 -44, 50 -22, 48 4 C 46 27, 25 38, -2 37 C -27 36, -42 22, -44 2 Z" fill="url(#drop-body)" stroke="url(#drop-rim)" stroke-width="1.4"/>
+                    <ellipse class="droplet-glint" cx="-15" cy="-18" rx="16" ry="8.5" transform="rotate(-24 -15 -18)" fill="url(#drop-spec-main)"/>
+                    <circle class="droplet-glint" cx="-26" cy="-7" r="3.2" fill="#FAF7F2" opacity="0.85"/>
+                    <path d="M 12 24 C 24 22, 33 14, 36 3" stroke="#E8F1EF" stroke-opacity="0.55" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                  </g>
+
+                  <g transform="translate(555, 255)">
+                    <ellipse cx="10" cy="17" rx="36" ry="18" fill="url(#drop-shadow)"/>
+                    <ellipse cx="15" cy="16" rx="24" ry="11" fill="url(#drop-caustic)"/>
+                    <path d="M -30 1 C -31 -17, -15 -31, 3 -31 C 21 -31, 34 -15, 33 3 C 31 19, 17 26, -1 25 C -19 24, -29 15, -30 1 Z" fill="url(#drop-body)" stroke="url(#drop-rim)" stroke-width="1.2"/>
+                    <ellipse class="droplet-glint droplet-glint--delayed" cx="-10" cy="-13" rx="11" ry="5.8" transform="rotate(-22 -10 -13)" fill="url(#drop-spec-main)"/>
+                    <circle cx="-18" cy="-5" r="2.2" fill="#FAF7F2" opacity="0.8"/>
+                    <path d="M 8 17 C 17 15, 23 10, 25 2" stroke="#E8F1EF" stroke-opacity="0.5" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+                  </g>
+
+                  <g transform="translate(885, 295)">
+                    <ellipse cx="8" cy="13" rx="26" ry="13" fill="url(#drop-shadow)"/>
+                    <ellipse cx="12" cy="12" rx="17" ry="8" fill="url(#drop-caustic)"/>
+                    <path d="M -22 1 C -23 -12, -11 -22, 2 -22 C 15 -22, 25 -11, 24 2 C 23 14, 12 19, -1 18 C -14 18, -21 11, -22 1 Z" fill="url(#drop-body)" stroke="url(#drop-rim)" stroke-width="1.1"/>
+                    <ellipse class="droplet-glint" cx="-7" cy="-9" rx="8" ry="4.2" transform="rotate(-24 -7 -9)" fill="url(#drop-spec-main)"/>
+                    <path d="M 6 12 C 12 11, 16 7, 18 1" stroke="#E8F1EF" stroke-opacity="0.48" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                  </g>
+
+                  <g transform="translate(675, 492)">
+                    <ellipse cx="5" cy="9" rx="17" ry="8.5" fill="url(#drop-shadow)"/>
+                    <ellipse cx="8" cy="8" rx="11" ry="5.5" fill="url(#drop-caustic)"/>
+                    <path d="M -14 0 C -14 -8, -7 -14, 1 -14 C 10 -14, 16 -7, 15 1 C 14 9, 8 12, 0 12 C -9 12, -14 7, -14 0 Z" fill="url(#drop-body)" stroke="url(#drop-rim)" stroke-width="1"/>
+                    <ellipse class="droplet-glint droplet-glint--delayed" cx="-4.5" cy="-5.5" rx="5.2" ry="2.8" transform="rotate(-22 -4.5 -5.5)" fill="url(#drop-spec-main)"/>
+                  </g>
+                </svg>
+
+                <!-- Foto real IMG-01 -->
+                <img
+                  src="assets/hero.jpg"
+                  alt="Detalhe de tecido de estofado em verde-petróleo com gotas de água repelidas pela impermeabilização"
+                  width="2400"
+                  height="1600"
+                  fetchpriority="high"
+                  decoding="async"
+                  class="hero-photo slot-img"
+                  onload="this.classList.add('is-loaded');this.closest('[data-slot]').classList.add('has-image');"
+                  onerror="this.closest('[data-slot]').classList.add('is-fallback');"
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Cartão de Contato integrado à vitrine no mobile e flutuante no desktop -->
+          <a
+            href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+            target="_blank"
+            rel="noopener"
+            class="hero-contact-card"
+            id="hero-contact-card"
+            data-wa-link
+            aria-label="Chamar no WhatsApp (41) 90000-0000 — Atendimento hoje até 18h"
+          >
+            <span class="hero-contact-card__badge palette-1" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.53 7.6C9.3 7.1 9.07 7.09 8.86 7.08C8.68 7.07 8.48 7.07 8.28 7.07C8.08 7.07 7.75 7.15 7.48 7.45C7.2 7.75 6.43 8.47 6.43 9.94C6.43 11.41 7.5 12.83 7.65 13.03C7.8 13.23 9.72 16.34 12.76 17.54C15.29 18.54 15.8 18.34 16.35 18.29C16.9 18.24 18.12 17.57 18.37 16.87C18.62 16.17 18.62 15.57 18.55 15.45C18.47 15.32 18.27 15.25 17.97 15.1C17.67 14.95 16.2 14.23 15.92 14.13C15.65 14.03 15.45 13.98 15.25 14.28C15.05 14.58 14.48 15.25 14.3 15.45C14.12 15.65 13.95 15.68 13.65 15.53C13.35 15.38 12.38 15.06 11.24 14.04C10.35 13.25 9.75 12.27 9.57 11.97C9.4 11.67 9.55 11.51 9.7 11.36C9.84 11.23 10 11.01 10.15 10.83C10.3 10.66 10.35 10.53 10.45 10.33C10.55 10.13 10.5 9.96 10.42 9.81C10.35 9.66 9.77 8.18 9.53 7.6Z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="hero-contact-card__body">
+              <span class="hero-contact-card__status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span data-config="horarioCurto">Atendimento hoje até 18h</span>
+              </span>
+              <strong class="hero-contact-card__phone" data-config="telefoneExibicao">(41) 90000-0000</strong>
+              <span class="hero-contact-card__reply" data-config="tempoResposta">Respondemos em poucos minutos</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curva SVG discreta entre Hero (--ink-deep) e Diferenciais (--sand-bg) -->
+    <div class="section-curve" style="background-color: var(--sand-bg);" aria-hidden="true">
+      <svg viewBox="0 0 1440 72" preserveAspectRatio="none">
+        <path d="M0 -4 L 1440 -4 L 1440 20 C 1080 70, 360 70, 0 20 Z" fill="#071718"/>
+        <path d="M0 20 C 360 70, 1080 70, 1440 20" stroke="#52C977" stroke-opacity="0.32" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         3. FAIXA DE DIFERENCIAIS (Fundo Areia Quente #EFE6D8)
+         ====================================================================== -->
+    <section class="trust-strip" aria-label="Diferenciais do serviço">
+      <div class="container">
+        <ul class="trust-strip__grid">
+          <li class="trust-item" data-reveal="up" style="--stagger: 0ms;">
+            <span class="trust-item__icon palette-1" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 10.5L12 3L21 10.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V10.5Z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21V14H15V21" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="trust-item__text">Atendemos na sua&nbsp;casa</span>
+          </li>
+
+          <li class="trust-item" data-reveal="up" style="--stagger: 80ms;">
+            <span class="trust-item__icon palette-1" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 21C16.5 18.3 19.5 14.4 19.5 9.6V5.4L12 2.7L4.5 5.4V9.6C4.5 14.4 7.5 18.3 12 21Z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 12L11.1 14.1L15.3 9.9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="trust-item__text">Produtos seguros para crianças e&nbsp;pets</span>
+          </li>
+
+          <li class="trust-item" data-reveal="up" style="--stagger: 160ms;">
+            <span class="trust-item__icon palette-1" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M21 11.5C21 16.1944 16.9706 20 12 20C10.5906 20 9.25711 19.6941 8.07143 19.15L3 20.5L4.45 16.05C3.53226 14.7495 3 13.1869 3 11.5C3 6.80558 7.02944 3 12 3C16.9706 3 21 6.80558 21 11.5Z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 11.5H15.5M8.5 8.5H12.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="trust-item__text">Orçamento sem&nbsp;compromisso</span>
+          </li>
+
+          <li class="trust-item" data-reveal="up" style="--stagger: 240ms;">
+            <span class="trust-item__icon palette-1" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.75"/>
+                <path d="M12 7.5V12L15 13.8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="trust-item__text">Garantia de 30 dias no&nbsp;serviço</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Curva SVG discreta entre Diferenciais (--sand-bg) e Serviços (--mist) -->
+    <div class="section-curve" style="background-color: var(--mist);" aria-hidden="true">
+      <svg viewBox="0 0 1440 68" preserveAspectRatio="none">
+        <path d="M0 -4 L 1440 -4 L 1440 18 C 1020 66, 420 66, 0 18 Z" fill="#EFE6D8"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         4. SERVIÇOS (Fundo Verde-Névoa Mineral #DCECE8)
+         ====================================================================== -->
+    <section class="services-section fabric-surface" id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <header class="section-header" data-reveal="up">
+          <span class="section-eyebrow">Nossos serviços</span>
+          <h2 class="section-title" id="servicos-title">Cuidado técnico para renovar e proteger o&nbsp;tecido</h2>
+        </header>
+
+        <div class="services-grid">
+          <!-- Card 1: Higienização -->
+          <article class="service-card" data-reveal="left" style="--stagger: 0ms;">
+            <!-- IMG-02: SERVIÇO HIGIENIZAÇÃO, assets/servico-higienizacao.jpg, 4:5 -->
+            <div class="service-card__media" data-slot="IMG-02" style="--slot-pos: center center;">
+              <span class="slot-badge">IMG-02 · assets/servico-higienizacao.jpg · 4:5</span>
+              <div class="service-card__media-inner">
+                <svg class="service-card__placeholder-svg" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="srv1-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#277976"/>
+                      <stop offset="52%" stop-color="#195656"/>
+                      <stop offset="100%" stop-color="#0F2A2B"/>
+                    </linearGradient>
+                    <radialGradient id="srv1-glow" cx="25%" cy="22%" r="65%">
+                      <stop offset="0%" stop-color="#E8F1EF" stop-opacity="0.46"/>
+                      <stop offset="50%" stop-color="#3E8F8A" stop-opacity="0.18"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <rect width="600" height="750" fill="url(#srv1-bg)"/>
+                  <rect width="600" height="750" fill="url(#srv1-glow)"/>
+                  <path d="M-40 210 C 140 160, 340 240, 640 380 L 640 750 L -40 750 Z" fill="#0F2A2B" opacity="0.42"/>
+                  <path d="M-40 90 C 170 40, 380 140, 640 290 L 640 430 C 370 290, 170 190, -40 240 Z" fill="#E8F1EF" opacity="0.22"/>
+                  <path d="M-40 340 C 160 300, 380 390, 640 510 L 640 640 C 380 520, 160 430, -40 470 Z" fill="#D9C7A5" opacity="0.14"/>
+                </svg>
+
+                <img
+                  src="assets/servico-higienizacao.jpg"
+                  alt="Extração profunda de sujeira em tecido de sofá"
+                  width="1200"
+                  height="1500"
+                  loading="lazy"
+                  decoding="async"
+                  class="slot-img"
+                  onload="this.classList.add('is-loaded');this.closest('[data-slot]').classList.add('has-image');"
+                  onerror="this.closest('[data-slot]').classList.add('is-fallback');"
+                >
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__top">
+                <h3 class="service-card__title">Higienização</h3>
+                <span class="service-card__price palette-1" data-config="detalheHigienizacao">A partir de R$ 149</span>
+              </div>
+              <p class="service-card__desc">
+                Limpeza profunda das fibras. Tira sujeira, manchas e odores que a aspiração não&nbsp;alcança.
+              </p>
+              <div class="service-card__footer">
+                <span class="service-card__note" data-config="notaHigienizacao">Referência: sofá de 2 lugares</span>
+                <a
+                  href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+                  target="_blank"
+                  rel="noopener"
+                  class="btn-secondary"
+                  data-wa-link
+                >
+                  <span class="btn-secondary__label">Pedir orçamento</span>
+                  <svg class="btn-secondary__arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4.167 10H15.833M15.833 10L10.833 5M15.833 10L10.833 15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Impermeabilização -->
+          <article class="service-card" data-reveal="right" style="--stagger: 90ms;">
+            <!-- IMG-03: SERVIÇO IMPERMEABILIZAÇÃO, assets/servico-impermeabilizacao.jpg, 4:5 -->
+            <div class="service-card__media" data-slot="IMG-03" style="--slot-pos: center center;">
+              <span class="slot-badge">IMG-03 · assets/servico-impermeabilizacao.jpg · 4:5</span>
+              <div class="service-card__media-inner">
+                <svg class="service-card__placeholder-svg" viewBox="0 0 600 750" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="srv2-bg" x1="10%" y1="0%" x2="90%" y2="100%">
+                      <stop offset="0%" stop-color="#358681"/>
+                      <stop offset="48%" stop-color="#1D6B6A"/>
+                      <stop offset="100%" stop-color="#0F2A2B"/>
+                    </linearGradient>
+                    <radialGradient id="srv2-glow" cx="72%" cy="24%" r="62%">
+                      <stop offset="0%" stop-color="#D9C7A5" stop-opacity="0.34"/>
+                      <stop offset="48%" stop-color="#E8F1EF" stop-opacity="0.22"/>
+                      <stop offset="100%" stop-color="#0F2A2B" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <rect width="600" height="750" fill="url(#srv2-bg)"/>
+                  <rect width="600" height="750" fill="url(#srv2-glow)"/>
+                  <path d="M-40 310 C 180 220, 410 290, 640 430 L 640 750 L -40 750 Z" fill="#0F2A2B" opacity="0.46"/>
+                  <path d="M-40 160 C 200 100, 420 180, 640 320 L 640 450 C 400 320, 190 230, -40 290 Z" fill="#E8F1EF" opacity="0.20"/>
+                </svg>
+
+                <img
+                  src="assets/servico-impermeabilizacao.jpg"
+                  alt="Líquido formando gotas sobre tecido impermeabilizado sem penetrar"
+                  width="1200"
+                  height="1500"
+                  loading="lazy"
+                  decoding="async"
+                  class="slot-img"
+                  onload="this.classList.add('is-loaded');this.closest('[data-slot]').classList.add('has-image');"
+                  onerror="this.closest('[data-slot]').classList.add('is-fallback');"
+                >
+              </div>
+            </div>
+
+            <div class="service-card__body">
+              <div class="service-card__top">
+                <h3 class="service-card__title">Impermeabilização</h3>
+                <span class="service-card__price palette-1" data-config="detalheImpermeabilizacao">A partir de R$ 189</span>
+              </div>
+              <p class="service-card__desc">
+                Uma barreira invisível. Líquidos escorrem em vez de penetrar, e você limpa com um&nbsp;pano.
+              </p>
+              <div class="service-card__footer">
+                <span class="service-card__note">Proteção sem alterar o toque</span>
+                <a
+                  href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+                  target="_blank"
+                  rel="noopener"
+                  class="btn-secondary"
+                  data-wa-link
+                >
+                  <span class="btn-secondary__label">Pedir orçamento</span>
+                  <svg class="btn-secondary__arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="M4.167 10H15.833M15.833 10L10.833 5M15.833 10L10.833 15" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curva SVG discreta entre Serviços (--mist) e Como funciona (--ink) -->
+    <div class="section-curve" style="background-color: var(--ink);" aria-hidden="true">
+      <svg viewBox="0 0 1440 84" preserveAspectRatio="none">
+        <path d="M0 -4 L 1440 -4 L 1440 22 C 1080 82, 360 82, 0 22 Z" fill="#DCECE8"/>
+        <path d="M0 22 C 360 82, 1080 82, 1440 22" stroke="#3E8F8A" stroke-opacity="0.34" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         5. COMO FUNCIONA (PAUSA ESCURA EM DEGRADÊ --ink PARA --teal)
+         ====================================================================== -->
+    <section class="steps-section section-dark" id="como-funciona" aria-labelledby="como-funciona-title">
+      <div class="container">
+        <header class="section-header" data-reveal="up">
+          <span class="section-eyebrow">Simples e direto</span>
+          <h2 class="section-title" id="como-funciona-title">Como funciona</h2>
+        </header>
+
+        <div class="steps-grid-wrap" id="steps-grid-wrap" data-reveal="up">
+          <div class="steps-connector" aria-hidden="true">
+            <div class="steps-connector__fill"></div>
+          </div>
+
+          <ol class="steps-grid">
+            <li class="step-card" data-step-card style="--stagger: 0ms;">
+              <span class="step-card__number palette-1" aria-hidden="true">1</span>
+              <h3 class="step-card__title">Você chama no&nbsp;WhatsApp</h3>
+              <p class="step-card__desc">
+                Conte o tipo de estofado e mande uma foto. Respondemos com o&nbsp;orçamento.
+              </p>
+            </li>
+
+            <li class="step-card" data-step-card style="--stagger: 100ms;">
+              <span class="step-card__number palette-1" aria-hidden="true">2</span>
+              <h3 class="step-card__title">Fazemos o&nbsp;serviço</h3>
+              <p class="step-card__desc">
+                Vamos até você. Higienizamos e, se quiser, impermeabilizamos na mesma&nbsp;visita.
+              </p>
+            </li>
+
+            <li class="step-card" data-step-card style="--stagger: 200ms;">
+              <span class="step-card__number palette-1" aria-hidden="true">3</span>
+              <h3 class="step-card__title">Seca e&nbsp;pronto</h3>
+              <p class="step-card__desc">
+                A secagem leva de 6 a 8 horas. Deixamos as orientações dos primeiros&nbsp;dias.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curva SVG discreta entre Como funciona (--teal) e Antes e depois (--cream-warm) -->
+    <div class="section-curve" style="background-color: var(--cream-warm);" aria-hidden="true">
+      <svg viewBox="0 0 1440 84" preserveAspectRatio="none">
+        <path d="M0 -4 L 1440 -4 L 1440 26 C 1080 82, 360 82, 0 26 Z" fill="#1D6B6A"/>
+        <path d="M0 26 C 360 82, 1080 82, 1440 26" stroke="#D9C7A5" stroke-opacity="0.38" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         6. ANTES E DEPOIS (Fundo Creme Aquecido #F3ECE1)
+         ====================================================================== -->
+    <section class="compare-section" id="antes-depois" aria-labelledby="antes-depois-title">
+      <div class="container">
+        <header class="section-header compare-header" data-reveal="up">
+          <h2 class="section-title" id="antes-depois-title">Veja a&nbsp;diferença</h2>
+          <p class="section-subtitle">Arraste para&nbsp;comparar.</p>
+        </header>
+
+        <div class="compare-widget" id="compare-widget" data-reveal="up">
+          <!-- IMG-05: DEPOIS DO COMPARADOR, assets/depois.jpg, 4:3 (1600x1200) -->
+          <div class="compare-layer compare-layer--after" data-slot="IMG-05" style="--slot-pos: center center;">
+            <span class="slot-badge slot-badge--right">IMG-05 · assets/depois.jpg · 4:3</span>
+            <svg class="compare-layer__svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="1200" height="900" fill="#257573"/>
+            </svg>
+
+            <img
+              src="assets/depois.jpg"
+              alt="Estofado depois da higienização: tecido limpo, uniforme e renovado"
+              width="1600"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+              class="slot-img"
+              onload="this.classList.add('is-loaded');this.closest('[data-slot]').classList.add('has-image');"
+              onerror="this.closest('[data-slot]').classList.add('is-fallback');"
+            >
+          </div>
+
+          <!-- IMG-04: ANTES DO COMPARADOR, assets/antes.jpg, 4:3 (1600x1200) -->
+          <div class="compare-layer compare-layer--before" id="compare-before-layer" data-slot="IMG-04" style="--slot-pos: center center;">
+            <span class="slot-badge">IMG-04 · assets/antes.jpg · 4:3</span>
+            <svg class="compare-layer__svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="1200" height="900" fill="#424C4A"/>
+            </svg>
+
+            <img
+              src="assets/antes.jpg"
+              alt="Estofado antes da higienização: tecido com manchas e sinais de uso"
+              width="1600"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+              class="slot-img"
+              onload="this.classList.add('is-loaded');this.closest('[data-slot]').classList.add('has-image');"
+              onerror="this.closest('[data-slot]').classList.add('is-fallback');"
+            >
+          </div>
+
+          <span class="compare-pill compare-pill--before" aria-hidden="true">Antes</span>
+          <span class="compare-pill compare-pill--after" aria-hidden="true">Depois</span>
+
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="compare-range"
+            id="compare-range"
+            aria-label="Comparar estofado antes e depois da higienização"
+          >
+
+          <div class="compare-handle" aria-hidden="true">
+            <div class="compare-handle__Knob">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 7L3 12L8 17M16 7L21 12L16 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curva SVG discreta entre Antes e depois (--cream-warm) e Perguntas (--mist-sage) -->
+    <div class="section-curve" style="background-color: var(--mist-sage);" aria-hidden="true">
+      <svg viewBox="0 0 1440 68" preserveAspectRatio="none">
+        <path d="M0 -4 L 1440 -4 L 1440 18 C 1020 66, 420 66, 0 18 Z" fill="#F3ECE1"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         7. PERGUNTAS FREQUENTES (Fundo Verde-Sálvia #E2F0EC)
+         ====================================================================== -->
+    <section class="faq-section" id="perguntas" aria-labelledby="perguntas-title">
+      <div class="container">
+        <div class="faq-layout">
+          <header class="section-header" data-reveal="up" style="margin-bottom: 0;">
+            <span class="section-eyebrow">Tire suas dúvidas</span>
+            <h2 class="section-title" id="perguntas-title">Perguntas frequentes</h2>
+            <p class="section-subtitle">
+              Respostas diretas sobre tempo de secagem, toque do tecido e atendimento em&nbsp;<span data-config="cidadeCurta">Curitiba</span>.
+            </p>
+          </header>
+
+          <div class="faq-list" data-reveal="up" style="--stagger: 120ms;">
+            <details class="faq-item" data-faq-item>
+              <summary class="faq-summary">
+                <span>Quanto tempo leva para secar?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer-wrap">
+                <p class="faq-answer">
+                  Em geral, de 6 a 8 horas, com o ambiente ventilado. Passamos a orientação certa para o seu&nbsp;tecido.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item" data-faq-item>
+              <summary class="faq-summary">
+                <span>A impermeabilização muda o toque do tecido?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer-wrap">
+                <p class="faq-answer">
+                  Não. O toque e a aparência permanecem os&nbsp;mesmos.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item" data-faq-item>
+              <summary class="faq-summary">
+                <span>Serve para qualquer estofado?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer-wrap">
+                <p class="faq-answer">
+                  Atendemos sofás, poltronas, cadeiras, colchões e bancos de&nbsp;carro.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item" data-faq-item>
+              <summary class="faq-summary">
+                <span>Atendem na minha região?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer-wrap">
+                <p class="faq-answer" data-config="faqRegiao">
+                  Atendemos Batel, Água Verde, Bigorrilho, Juvevê, Centro Cívico e Portão. Se a sua não está na lista, pergunte no&nbsp;WhatsApp.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curva SVG discreta entre Perguntas (--mist-sage) e Chamada final (--ink) -->
+    <div class="section-curve" style="background-color: var(--ink);" aria-hidden="true">
+      <svg viewBox="0 0 1440 84" preserveAspectRatio="none">
+        <path d="M0 -4 L 1440 -4 L 1440 22 C 1080 82, 360 82, 0 22 Z" fill="#E2F0EC"/>
+        <path d="M0 22 C 360 82, 1080 82, 1440 22" stroke="#3E8F8A" stroke-opacity="0.32" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- ======================================================================
+         8. CHAMADA FINAL (DEGRADÊ ESCURO + IMG-06 MUITO SUAVE POR BAIXO)
+         ====================================================================== -->
+    <section class="final-cta section-dark" id="orcamento" aria-labelledby="chamada-final-title">
+      <!-- IMG-06: CHAMADA FINAL, assets/chamada-final.jpg, 2:1 (2000x1000) -->
+      <div class="final-cta__bg" id="final-cta-parallax" data-slot="IMG-06" style="--slot-pos: center center;">
+        <span class="slot-badge">IMG-06 · assets/chamada-final.jpg · 2:1</span>
+        <svg class="final-cta__bg-svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="1600" height="800" fill="#0F2A2B"/>
+        </svg>
+
+        <img
+          src="assets/chamada-final.jpg"
+          alt=""
+          width="2000"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+          class="slot-img"
+          onload="this.classList.add('is-loaded');this.closest('[data-slot]').classList.add('has-image');"
+          onerror="this.closest('[data-slot]').classList.add('is-fallback');"
+        >
+      </div>
+
+      <div class="final-cta__veil" aria-hidden="true"></div>
+
+      <div class="container final-cta__inner" data-reveal="up">
+        <h2 class="final-cta__title" id="chamada-final-title">Mande uma foto do seu&nbsp;estofado.</h2>
+        <p class="final-cta__lead">
+          Você recebe o orçamento sem compromisso, em poucos&nbsp;minutos.
+        </p>
+        <a
+          href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+          target="_blank"
+          rel="noopener"
+          class="btn btn--wa btn--wa-sheen final-cta__btn"
+          data-wa-link
+        >
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.53 7.6C9.3 7.1 9.07 7.09 8.86 7.08C8.68 7.07 8.48 7.07 8.28 7.07C8.08 7.07 7.75 7.15 7.48 7.45C7.2 7.75 6.43 8.47 6.43 9.94C6.43 11.41 7.5 12.83 7.65 13.03C7.8 13.23 9.72 16.34 12.76 17.54C15.29 18.54 15.8 18.34 16.35 18.29C16.9 18.24 18.12 17.57 18.37 16.87C18.62 16.17 18.62 15.57 18.55 15.45C18.47 15.32 18.27 15.25 17.97 15.1C17.67 14.95 16.2 14.23 15.92 14.13C15.65 14.03 15.45 13.98 15.25 14.28C15.05 14.58 14.48 15.25 14.3 15.45C14.12 15.65 13.95 15.68 13.65 15.53C13.35 15.38 12.38 15.06 11.24 14.04C10.35 13.25 9.75 12.27 9.57 11.97C9.4 11.67 9.55 11.51 9.7 11.36C9.84 11.23 10 11.01 10.15 10.83C10.3 10.66 10.35 10.53 10.45 10.33C10.55 10.13 10.5 9.96 10.42 9.81C10.35 9.66 9.77 8.18 9.53 7.6Z" fill="currentColor"/>
+          </svg>
+          <span>Falar no WhatsApp</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       9. RODAPÉ COM BEAMS BACKGROUND NO NOME DA MARCA AO FINAL
+       ======================================================================== -->
+  <footer class="site-footer" id="rodape">
+    <!-- Painel BeamsBackground (beams-background.tsx) destacando o nome da marca -->
+    <div class="brand-beams-showcase" id="beams-showcase">
+      <canvas class="beams-canvas" id="beams-canvas" aria-hidden="true"></canvas>
+      <div class="beams-backdrop-pulse" aria-hidden="true"></div>
+
+      <div class="brand-beams-showcase__content" data-reveal="up">
+        <span class="brand-beams-showcase__badge">
+          <span class="hero__eyebrow-dot palette-1" aria-hidden="true"></span>
+          <span data-config="cidade">Curitiba, PR</span>
+        </span>
+        <h2 class="brand-beams-showcase__title palette-1-text" data-config="nome">Lume Estofados</h2>
+        <p class="brand-beams-showcase__slogan" data-config="slogan">
+          Estofado limpo, protegido e com cheiro de casa nova
+        </p>
+      </div>
+    </div>
+
+    <div class="container site-footer__main">
+      <div class="site-footer__grid">
+        <div class="site-footer__group">
+          <span class="site-footer__label">Atendimento em domicílio</span>
+          <span data-config="cidade">Curitiba, PR</span>
+          <span>Horário: <span data-config="horario">segunda a sábado, das 8h às 18h</span></span>
+        </div>
+
+        <div class="site-footer__group">
+          <span class="site-footer__label">Principais bairros</span>
+          <span data-config="bairrosResumo">Batel · Água Verde · Bigorrilho · Juvevê · Centro Cívico · Portão</span>
+          <span>Garantia de 30 dias no serviço</span>
+        </div>
+
+        <div class="site-footer__group">
+          <span class="site-footer__label">Contato direto</span>
+          <a
+            href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+            target="_blank"
+            rel="noopener"
+            class="site-footer__link"
+            data-wa-link
+          >
+            <span>WhatsApp: <strong data-config="telefoneExibicao">(41) 90000-0000</strong></span>
+          </a>
+          <a href="mailto:contato@lumeestofados.exemplo" class="site-footer__link" data-email-link>
+            <span data-config="email">contato@lumeestofados.exemplo</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© <span id="current-year">2026</span> <span data-config="nome">Lume Estofados</span>. Todos os direitos reservados.</p>
+        <p data-config="bairrosResumo">Batel · Água Verde · Bigorrilho · Juvevê · Centro Cívico · Portão</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Fixo de WhatsApp (somente no celular, aparece após a hero e some na chamada final) -->
+  <a
+    href="https://wa.me/5541900000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20o%20meu%20estofado."
+    target="_blank"
+    rel="noopener"
+    class="floating-wa"
+    id="floating-wa"
+    data-wa-link
+    aria-label="Pedir orçamento no WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.53 7.6C9.3 7.1 9.07 7.09 8.86 7.08C8.68 7.07 8.48 7.07 8.28 7.07C8.08 7.07 7.75 7.15 7.48 7.45C7.2 7.75 6.43 8.47 6.43 9.94C6.43 11.41 7.5 12.83 7.65 13.03C7.8 13.23 9.72 16.34 12.76 17.54C15.29 18.54 15.8 18.34 16.35 18.29C16.9 18.24 18.12 17.57 18.37 16.87C18.62 16.17 18.62 15.57 18.55 15.45C18.47 15.32 18.27 15.25 17.97 15.1C17.67 14.95 16.2 14.23 15.92 14.13C15.65 14.03 15.45 13.98 15.25 14.28C15.05 14.58 14.48 15.25 14.3 15.45C14.12 15.65 13.95 15.68 13.65 15.53C13.35 15.38 12.38 15.06 11.24 14.04C10.35 13.25 9.75 12.27 9.57 11.97C9.4 11.67 9.55 11.51 9.7 11.36C9.84 11.23 10 11.01 10.15 10.83C10.3 10.66 10.35 10.53 10.45 10.33C10.55 10.13 10.5 9.96 10.42 9.81C10.35 9.66 9.77 8.18 9.53 7.6Z" fill="currentColor"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <!-- ========================================================================
+       JAVASCRIPT PURO: CONFIGURAÇÃO CENTRAL, INTERAÇÕES, AURORA & BEAMS CANVAS
+       ======================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ======================================================================
+         1. OBJETO DE CONFIGURAÇÃO CENTRAL (CONFIG)
+         ====================================================================== */
+      const CONFIG = {
+        nome: 'Lume Estofados',
+        slogan: 'Estofado limpo, protegido e com cheiro de casa nova',
+        cidade: 'Curitiba, PR',
+        cidadeCurta: 'Curitiba',
+        bairros: ['Batel', 'Água Verde', 'Bigorrilho', 'Juvevê', 'Centro Cívico', 'Portão'],
+        whatsappNumero: '5541900000000',
+        telefoneExibicao: '(41) 90000-0000',
+        email: 'contato@lumeestofados.exemplo',
+        horario: 'segunda a sábado, das 8h às 18h',
+        horarioCurto: 'Atendimento hoje até 18h',
+        precoHigienizacao: 'R$ 149',
+        notaHigienizacao: 'Referência: sofá de 2 lugares',
+        precoImpermeabilizacao: 'R$ 189',
+        tempoResposta: 'Respondemos em poucos minutos',
+        mensagemWhatsApp: 'Olá! Vim pelo site e gostaria de um orçamento para o meu estofado.'
+      };
+
+      function applyConfig(cfg) {
+        const waUrl = 'https://wa.me/' + cfg.whatsappNumero + '?text=' + encodeURIComponent(cfg.mensagemWhatsApp);
+        const listaBairros = cfg.bairros.slice(0, -1).join(', ') + ' e ' + cfg.bairros[cfg.bairros.length - 1];
+
+        const computedValues = {
+          nome: cfg.nome,
+          slogan: cfg.slogan,
+          cidade: cfg.cidade,
+          cidadeCurta: cfg.cidadeCurta,
+          telefoneExibicao: cfg.telefoneExibicao,
+          email: cfg.email,
+          horario: cfg.horario,
+          horarioCurto: cfg.horarioCurto,
+          precoHigienizacao: cfg.precoHigienizacao,
+          detalheHigienizacao: 'A partir de ' + cfg.precoHigienizacao,
+          notaHigienizacao: cfg.notaHigienizacao,
+          precoImpermeabilizacao: cfg.precoImpermeabilizacao,
+          detalheImpermeabilizacao: 'A partir de ' + cfg.precoImpermeabilizacao,
+          tempoResposta: cfg.tempoResposta,
+          heroEyebrow: cfg.nome + ' · Higienização e impermeabilização em ' + cfg.cidadeCurta,
+          faqRegiao: 'Atendemos ' + listaBairros + '. Se a sua não está na lista, pergunte no WhatsApp.',
+          bairrosResumo: cfg.bairros.join(' · ')
+        };
+
+        document.querySelectorAll('[data-config]').forEach(function (el) {
+          const key = el.getAttribute('data-config');
+          if (Object.prototype.hasOwnProperty.call(computedValues, key)) {
+            el.textContent = computedValues[key];
+          }
+        });
+
+        document.querySelectorAll('[data-wa-link]').forEach(function (link) {
+          link.setAttribute('href', waUrl);
+        });
+
+        document.querySelectorAll('[data-email-link]').forEach(function (link) {
+          link.setAttribute('href', 'mailto:' + cfg.email);
+        });
+
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) {
+          yearEl.textContent = String(new Date().getFullYear());
+        }
+
+        document.title = cfg.nome + ' · Higienização e Impermeabilização em ' + cfg.cidade;
+
+        const jsonLdEl = document.getElementById('seo-jsonld');
+        if (jsonLdEl) {
+          const schemaData = {
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            name: cfg.nome,
+            description: cfg.slogan + '. Higienização profunda das fibras e impermeabilização em ' + cfg.cidade + '.',
+            slogan: cfg.slogan,
+            telephone: '+' + cfg.whatsappNumero,
+            email: cfg.email,
+            priceRange: cfg.precoHigienizacao + ' - ' + cfg.precoImpermeabilizacao + '+',
+            address: {
+              '@type': 'PostalAddress',
+              addressLocality: cfg.cidadeCurta,
+              addressRegion: 'PR',
+              addressCountry: 'BR'
+            },
+            areaServed: cfg.bairros,
+            openingHours: 'Mo-Sa 08:00-18:00'
+          };
+          jsonLdEl.textContent = JSON.stringify(schemaData, null, 2);
+        }
+      }
+
+      applyConfig(CONFIG);
+
+      /* ======================================================================
+         2. MODO DE INSPEÇÃO DE ESPAÇOS RESERVADOS (?slots)
+         ====================================================================== */
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('slots')) {
+          document.documentElement.classList.add('show-slots');
+        }
+      } catch (e) {}
+
+      /* ======================================================================
+         3. ENTRADA DA HERO E IMAGENS JÁ EM CACHE
+         ====================================================================== */
+      const htmlEl = document.documentElement;
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      htmlEl.classList.add('js-ready');
+      document.querySelectorAll('.slot-img').forEach(function (img) {
+        if (img.complete && img.naturalWidth > 0) {
+          img.classList.add('is-loaded');
+          const slot = img.closest('[data-slot]');
+          if (slot) slot.classList.add('has-image');
+        }
+      });
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          htmlEl.classList.add('hero-entered');
+        });
+      });
+
+      /* ======================================================================
+         4. CABEÇALHO, BARRA DE LEITURA E PARALLAX SUTIL (COMPUTADOR)
+         ====================================================================== */
+      const headerEl = document.getElementById('site-header');
+      const progressBar = document.getElementById('reading-progress-bar');
+      const heroParallax = document.getElementById('hero-parallax');
+      const finalCtaParallax = document.getElementById('final-cta-parallax');
+      const finalCtaSection = document.getElementById('orcamento');
+
+      let scrollTicking = false;
+
+      function updateOnScroll() {
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+
+        if (headerEl) {
+          if (scrollY > 24) {
+            headerEl.classList.add('is-scrolled');
+          } else {
+            headerEl.classList.remove('is-scrolled');
+          }
+        }
+
+        if (progressBar) {
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const progress = docHeight > 0 ? Math.min(1, Math.max(0, scrollY / docHeight)) : 0;
+          progressBar.style.transform = 'scaleX(' + progress.toFixed(4) + ')';
+        }
+
+        if (!prefersReducedMotion && window.innerWidth >= 1024) {
+          if (heroParallax && scrollY <= window.innerHeight * 1.2) {
+            const heroRatio = Math.min(1, Math.max(0, scrollY / window.innerHeight));
+            const offsetHero = (heroRatio * 20).toFixed(1);
+            heroParallax.style.transform = 'translate3d(0, ' + offsetHero + 'px, 0)';
+          }
+
+          if (finalCtaParallax && finalCtaSection) {
+            const rect = finalCtaSection.getBoundingClientRect();
+            const vh = window.innerHeight;
+            if (rect.top < vh && rect.bottom > 0) {
+              const progressCta = (vh - rect.top) / (vh + rect.height);
+              const offsetCta = ((progressCta - 0.5) * 24).toFixed(1);
+              finalCtaParallax.style.transform = 'translate3d(0, ' + offsetCta + 'px, 0)';
+            }
+          }
+        } else {
+          if (heroParallax) heroParallax.style.transform = '';
+          if (finalCtaParallax) finalCtaParallax.style.transform = '';
+        }
+
+        scrollTicking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!scrollTicking) {
+          requestAnimationFrame(updateOnScroll);
+          scrollTicking = true;
+        }
+      }, { passive: true });
+
+      updateOnScroll();
+
+      /* ======================================================================
+         5. MENU MOBILE ACESSÍVEL (X, ESC, LINK, CLIQUE FORA, TRAP DE FOCO)
+         ====================================================================== */
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobilePanel = document.getElementById('mobile-menu-panel');
+      const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+      const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+      let isMenuOpen = false;
+
+      function openMobileMenu() {
+        if (!menuToggle || !mobilePanel || isMenuOpen) return;
+        isMenuOpen = true;
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.setAttribute('aria-label', 'Fechar menu de navegação');
+        mobilePanel.classList.add('is-open');
+        mobilePanel.setAttribute('aria-hidden', 'false');
+        if (mobileBackdrop) mobileBackdrop.classList.add('is-open');
+        document.body.classList.add('menu-open');
+
+        const firstLink = mobilePanel.querySelector('a, button');
+        if (firstLink) {
+          setTimeout(function () {
+            firstLink.focus();
+          }, 50);
+        }
+      }
+
+      function closeMobileMenu(restoreFocus) {
+        if (!menuToggle || !mobilePanel || !isMenuOpen) return;
+        isMenuOpen = false;
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+        mobilePanel.classList.remove('is-open');
+        mobilePanel.setAttribute('aria-hidden', 'true');
+        if (mobileBackdrop) mobileBackdrop.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+
+        if (restoreFocus) {
+          menuToggle.focus();
+        }
+      }
+
+      if (menuToggle && mobilePanel) {
+        menuToggle.addEventListener('click', function () {
+          if (isMenuOpen) {
+            closeMobileMenu(true);
+          } else {
+            openMobileMenu();
+          }
+        });
+
+        if (mobileBackdrop) {
+          mobileBackdrop.addEventListener('click', function () {
+            closeMobileMenu(true);
+          });
+        }
+
+        mobilePanel.addEventListener('click', function (e) {
+          if (e.target === mobilePanel) {
+            closeMobileMenu(true);
+          }
+        });
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            closeMobileMenu(false);
+          });
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (!isMenuOpen) return;
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeMobileMenu(true);
+            return;
+          }
+
+          if (e.key === 'Tab') {
+            const focusables = [menuToggle].concat(
+              Array.prototype.slice.call(mobilePanel.querySelectorAll('a[href], button:not([disabled])'))
+            );
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        });
+
+        window.addEventListener('resize', function () {
+          if (window.innerWidth >= 1024 && isMenuOpen) {
+            closeMobileMenu(false);
+          }
+        }, { passive: true });
+      }
+
+      /* ======================================================================
+         6. ANIMAÇÕES DE ROLAGEM (UMA ÚNICA VEZ) E DESTAQUE DO MENU ATIVO
+         ====================================================================== */
+      const revealItems = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver(function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+
+              if (entry.target.id === 'steps-grid-wrap') {
+                const steps = entry.target.querySelectorAll('[data-step-card]');
+                steps.forEach(function (step, idx) {
+                  setTimeout(function () {
+                    step.classList.add('is-lit');
+                  }, idx * 180 + 150);
+                });
+              }
+
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.14,
+          rootMargin: '0px 0px -36px 0px'
+        });
+
+        revealItems.forEach(function (el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        revealItems.forEach(function (el) {
+          el.classList.add('is-revealed');
+        });
+        document.querySelectorAll('[data-step-card]').forEach(function (step) {
+          step.classList.add('is-lit');
+        });
+      }
+
+      const navLinks = document.querySelectorAll('[data-nav-link]');
+      const trackedSections = ['servicos', 'como-funciona', 'perguntas']
+        .map(function (id) { return document.getElementById(id); })
+        .filter(Boolean);
+
+      if ('IntersectionObserver' in window && trackedSections.length > 0) {
+        const navObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              const activeId = entry.target.id;
+              navLinks.forEach(function (link) {
+                if (link.getAttribute('data-nav-link') === activeId) {
+                  link.classList.add('is-active');
+                } else {
+                  link.classList.remove('is-active');
+                }
+              });
+            }
+          });
+        }, {
+          rootMargin: '-35% 0px -50% 0px',
+          threshold: 0
+        });
+
+        trackedSections.forEach(function (sec) {
+          navObserver.observe(sec);
+        });
+      }
+
+      /* ======================================================================
+         7. BOTÃO FIXO DE WHATSAPP NO CELULAR (APÓS HERO, SOME NA CHAMADA FINAL)
+         ====================================================================== */
+      const floatingWa = document.getElementById('floating-wa');
+      const heroSection = document.getElementById('inicio');
+      const footerSection = document.getElementById('rodape');
+      let heroVisible = true;
+      let ctaVisible = false;
+      let footerVisible = false;
+      let floatingHasPulsed = false;
+
+      function updateFloatingWa() {
+        if (!floatingWa) return;
+        const shouldShow = !heroVisible && !ctaVisible && !footerVisible;
+        if (shouldShow) {
+          floatingWa.classList.add('is-visible');
+          if (!floatingHasPulsed && !prefersReducedMotion) {
+            floatingHasPulsed = true;
+            floatingWa.classList.add('pulse-once');
+          }
+        } else {
+          floatingWa.classList.remove('is-visible');
+        }
+      }
+
+      if ('IntersectionObserver' in window && floatingWa && heroSection) {
+        const floatObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.target === heroSection) {
+              heroVisible = entry.isIntersecting;
+            } else if (entry.target === finalCtaSection) {
+              ctaVisible = entry.isIntersecting;
+            } else if (entry.target === footerSection) {
+              footerVisible = entry.isIntersecting;
+            }
+          });
+          updateFloatingWa();
+        }, { threshold: 0.08 });
+
+        floatObserver.observe(heroSection);
+        if (finalCtaSection) floatObserver.observe(finalCtaSection);
+        if (footerSection) floatObserver.observe(footerSection);
+      }
+
+      /* ======================================================================
+         8. COMPARADOR ANTES E DEPOIS (MOUSE, TOQUE, TECLADO + CONVITE ÚNICO)
+         ====================================================================== */
+      const compareWidget = document.getElementById('compare-widget');
+      const compareRange = document.getElementById('compare-range');
+      let compareInteracted = false;
+      let inviteFrameId = null;
+
+      function setComparePosition(value) {
+        if (!compareWidget || !compareRange) return;
+        const clamped = Math.min(100, Math.max(0, Number(value)));
+        compareWidget.style.setProperty('--compare-pos', clamped.toFixed(2) + '%');
+        compareRange.value = String(Math.round(clamped));
+      }
+
+      function cancelCompareInvite() {
+        compareInteracted = true;
+        if (inviteFrameId) {
+          cancelAnimationFrame(inviteFrameId);
+          inviteFrameId = null;
+        }
+      }
+
+      if (compareWidget && compareRange) {
+        compareRange.addEventListener('input', function (e) {
+          cancelCompareInvite();
+          setComparePosition(e.target.value);
+        });
+
+        compareRange.addEventListener('pointerdown', cancelCompareInvite, { passive: true });
+        compareRange.addEventListener('touchstart', cancelCompareInvite, { passive: true });
+        compareRange.addEventListener('keydown', cancelCompareInvite, { passive: true });
+
+        if ('IntersectionObserver' in window && !prefersReducedMotion) {
+          const compareObserver = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                obs.unobserve(entry.target);
+                if (compareInteracted) return;
+
+                const duration = 760;
+                let startTime = null;
+
+                function stepInvite(timestamp) {
+                  if (compareInteracted) return;
+                  if (!startTime) startTime = timestamp;
+                  const elapsed = timestamp - startTime;
+                  const t = Math.min(1, elapsed / duration);
+                  const pos = 50 - Math.sin(t * Math.PI) * 10;
+                  setComparePosition(pos);
+                  if (t < 1) {
+                    inviteFrameId = requestAnimationFrame(stepInvite);
+                  } else {
+                    setComparePosition(50);
+                  }
+                }
+
+                setTimeout(function () {
+                  if (!compareInteracted) {
+                    inviteFrameId = requestAnimationFrame(stepInvite);
+                  }
+                }, 260);
+              }
+            });
+          }, { threshold: 0.45 });
+
+          compareObserver.observe(compareWidget);
+        }
+      }
+
+      /* ======================================================================
+         9. PERGUNTAS FREQUENTES (ANIMAÇÃO SUAVE DE ALTURA NO DETAILS)
+         ====================================================================== */
+      const faqItems = document.querySelectorAll('[data-faq-item]');
+      faqItems.forEach(function (details) {
+        const summary = details.querySelector('summary');
+        const wrap = details.querySelector('.faq-answer-wrap');
+        if (!summary || !wrap) return;
+
+        summary.addEventListener('click', function (e) {
+          if (prefersReducedMotion) return;
+          e.preventDefault();
+
+          if (details.open) {
+            const startHeight = wrap.offsetHeight;
+            wrap.style.height = startHeight + 'px';
+            wrap.style.opacity = '1';
+            requestAnimationFrame(function () {
+              wrap.style.height = '0px';
+              wrap.style.opacity = '0';
+            });
+            setTimeout(function () {
+              details.open = false;
+              wrap.style.height = '';
+              wrap.style.opacity = '';
+            }, 280);
+          } else {
+            details.open = true;
+            const targetHeight = wrap.scrollHeight;
+            wrap.style.height = '0px';
+            wrap.style.opacity = '0';
+            requestAnimationFrame(function () {
+              wrap.style.height = targetHeight + 'px';
+              wrap.style.opacity = '1';
+            });
+            setTimeout(function () {
+              wrap.style.height = '';
+              wrap.style.opacity = '';
+            }, 280);
+          }
+        });
+      });
+
+      /* ======================================================================
+         10. BEAMS BACKGROUND EM CANVAS NO NOME DA MARCA AO FINAL (beams-background.tsx)
+         ====================================================================== */
+      const beamsCanvas = document.getElementById('beams-canvas');
+      const beamsContainer = document.getElementById('beams-showcase');
+
+      if (beamsCanvas && beamsContainer) {
+        const ctx = beamsCanvas.getContext('2d');
+        const MINIMUM_BEAMS = 18;
+        let beams = [];
+        let animFrameId = 0;
+        let isBeamsVisible = false;
+        let logicalW = 0;
+        let logicalH = 0;
+
+        function createBeam(width, height) {
+          const angle = -35 + Math.random() * 10;
+          return {
+            x: Math.random() * width * 1.5 - width * 0.25,
+            y: Math.random() * height * 1.5 - height * 0.25,
+            width: 34 + Math.random() * 64,
+            length: height * 2.5,
+            angle: angle,
+            speed: 0.55 + Math.random() * 1.0,
+            opacity: 0.14 + Math.random() * 0.16,
+            /* Tons verde-esmeralda e verde-petróleo harmonizados com a paleta */
+            hue: 145 + Math.random() * 35,
+            pulse: Math.random() * Math.PI * 2,
+            pulseSpeed: 0.02 + Math.random() * 0.025
+          };
+        }
+
+        function resetBeam(beam, index, totalBeams) {
+          const column = index % 3;
+          const spacing = logicalW / 3;
+          beam.y = logicalH + 90;
+          beam.x = column * spacing + spacing / 2 + (Math.random() - 0.5) * spacing * 0.5;
+          beam.width = 80 + Math.random() * 90;
+          beam.speed = 0.45 + Math.random() * 0.45;
+          beam.hue = 145 + (index * 35) / Math.max(1, totalBeams);
+          beam.opacity = 0.18 + Math.random() * 0.12;
+          return beam;
+        }
+
+        function updateCanvasSize() {
+          if (!ctx) return;
+          const rect = beamsContainer.getBoundingClientRect();
+          logicalW = Math.max(320, rect.width || window.innerWidth);
+          logicalH = Math.max(260, rect.height || 360);
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          beamsCanvas.width = logicalW * dpr;
+          beamsCanvas.height = logicalH * dpr;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          const totalBeams = Math.round(MINIMUM_BEAMS * 1.4);
+          beams = Array.from({ length: totalBeams }, function () {
+            return createBeam(logicalW, logicalH);
+          });
+        }
+
+        function drawBeam(beam) {
+          ctx.save();
+          ctx.translate(beam.x, beam.y);
+          ctx.rotate((beam.angle * Math.PI) / 180);
+
+          const pulsingOpacity = beam.opacity * (0.8 + Math.sin(beam.pulse) * 0.2) * 0.9;
+          const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
+
+          gradient.addColorStop(0, 'hsla(' + beam.hue + ', 75%, 56%, 0)');
+          gradient.addColorStop(0.1, 'hsla(' + beam.hue + ', 75%, 56%, ' + (pulsingOpacity * 0.5).toFixed(3) + ')');
+          gradient.addColorStop(0.4, 'hsla(' + beam.hue + ', 75%, 56%, ' + pulsingOpacity.toFixed(3) + ')');
+          gradient.addColorStop(0.6, 'hsla(' + beam.hue + ', 75%, 56%, ' + pulsingOpacity.toFixed(3) + ')');
+          gradient.addColorStop(0.9, 'hsla(' + beam.hue + ', 75%, 56%, ' + (pulsingOpacity * 0.5).toFixed(3) + ')');
+          gradient.addColorStop(1, 'hsla(' + beam.hue + ', 75%, 56%, 0)');
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
+          ctx.restore();
+        }
+
+        function renderBeamsFrame() {
+          if (!ctx) return;
+          ctx.clearRect(0, 0, logicalW, logicalH);
+          const totalBeams = beams.length;
+          beams.forEach(function (beam, index) {
+            beam.y -= beam.speed;
+            beam.pulse += beam.pulseSpeed;
+            if (beam.y + beam.length < -80) {
+              resetBeam(beam, index, totalBeams);
+            }
+            drawBeam(beam);
+          });
+        }
+
+        function animateBeams() {
+          if (!isBeamsVisible) return;
+          renderBeamsFrame();
+          animFrameId = requestAnimationFrame(animateBeams);
+        }
+
+        updateCanvasSize();
+        renderBeamsFrame();
+
+        window.addEventListener('resize', function () {
+          updateCanvasSize();
+          renderBeamsFrame();
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window && !prefersReducedMotion) {
+          const beamsObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              isBeamsVisible = entry.isIntersecting;
+              if (isBeamsVisible) {
+                if (animFrameId) cancelAnimationFrame(animFrameId);
+                animFrameId = requestAnimationFrame(animateBeams);
+              } else if (animFrameId) {
+                cancelAnimationFrame(animFrameId);
+                animFrameId = 0;
+              }
+            });
+          }, { threshold: 0.05 });
+
+          beamsObserver.observe(beamsContainer);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
